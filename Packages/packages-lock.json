@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.inspiaaa.unityhfsm": {
+      "version": "2.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
