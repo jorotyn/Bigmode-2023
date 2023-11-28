@@ -7,7 +7,7 @@ public class PlayerCharacterController : RaycastMovementController
 
     public CollisionInfo CurrentCollisions;
 
-    public void Move(Vector3 velocity)
+    public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();
         CurrentCollisions.Reset();
@@ -25,9 +25,14 @@ public class PlayerCharacterController : RaycastMovementController
             velocity = VerticalCollisions(velocity);
         }
         transform.Translate(velocity);
+
+        if (standingOnPlatform)
+        {
+            CurrentCollisions.Below = true;
+        }
     }
 
-    private Vector3 VerticalCollisions(Vector3 velocity)
+    private Vector2 VerticalCollisions(Vector2 velocity)
     {
         var directionY = Mathf.Sign(velocity.y);
         float rayLength = Mathf.Abs(velocity.y) + SkinWidth;
@@ -72,7 +77,7 @@ public class PlayerCharacterController : RaycastMovementController
         return velocity;
     }
 
-    private Vector3 HorizontalCollisions(Vector3 velocity)
+    private Vector2 HorizontalCollisions(Vector2 velocity)
     {
         float directionX = Mathf.Sign(velocity.x);
         float rayLength = Mathf.Abs(velocity.x) + SkinWidth;
@@ -85,6 +90,11 @@ public class PlayerCharacterController : RaycastMovementController
 
             if (hit)
             {
+                if (hit.distance == 0)
+                {
+                    continue;
+                }
+
                 var slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 if (i == 0 && slopeAngle <= MaxClimbAngle)
                 {
@@ -123,7 +133,7 @@ public class PlayerCharacterController : RaycastMovementController
         return velocity;
     }
 
-    private Vector3 ClimbSlope(Vector3 velocity, float slopeAngle)
+    private Vector2 ClimbSlope(Vector2 velocity, float slopeAngle)
     {
         var moveDistance = Mathf.Abs(velocity.x);
         var climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
@@ -139,7 +149,7 @@ public class PlayerCharacterController : RaycastMovementController
         return velocity;
     }
 
-    private Vector3 DescendSlope(Vector3 velocity)
+    private Vector2 DescendSlope(Vector2 velocity)
     {
         var directionX = Mathf.Sign(velocity.x);
         var rayOrigin = directionX == Vector2.left.x ? CastOrigins.BottomRight : CastOrigins.BottomLeft;
@@ -172,7 +182,7 @@ public class PlayerCharacterController : RaycastMovementController
         public bool ClimbingSlope, DescendingSlope;
         public float SlopeAngle, SlopeAngleOld;
 
-        public Vector3 VelocityOld;
+        public Vector2 VelocityOld;
 
         public void Reset()
         {
