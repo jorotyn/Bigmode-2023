@@ -6,5 +6,5 @@ public static class InputManager
         new Vector2(Input.GetAxis("Horizontal"),
                     Input.GetAxis("Vertical"));
 
-    public static bool JumpPressed() => Input.GetKeyDown(KeyCode.LeftBracket);
+    public static bool JumpPressed() => Input.GetButtonDown("Player1_Jump");
 }
