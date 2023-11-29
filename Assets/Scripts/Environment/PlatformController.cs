@@ -28,6 +28,7 @@ public class PlatformController : RaycastMovementController
 
     private void MovePassengers(bool beforeMovePlatform)
     {
+        if (_passengerMovements == null) return;
         foreach (var pm in _passengerMovements.Where(i => i.MoveBeforePlatform == beforeMovePlatform))
         {
             var transformId = pm.Transform.GetInstanceID();
