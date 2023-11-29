@@ -184,11 +184,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1544438597
-      Data2: 1145144074
-      Data3: 588088997
-      Data4: 1222294505
-    Path: event:/Main Music Sample Test
+      Data1: -1398628180
+      Data2: 1162896125
+      Data3: 371629223
+      Data4: 412095473
+    Path: event:/MultiTrack Music
   Event: 
   PlayEvent: 1
   StopEvent: 0
