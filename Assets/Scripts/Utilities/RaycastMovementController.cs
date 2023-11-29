@@ -12,14 +12,16 @@ public class RaycastMovementController : MonoBehaviour
     protected float HorizontalRaySpacing;
     protected float VerticalRaySpacing;
 
-    protected BoxCollider2D Collider;
+    public BoxCollider2D Collider { get; private set; }
     protected RaycastOrigins CastOrigins;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         Collider = GetComponent<BoxCollider2D>();
         CalculateRaySpacing();
     }
+
+    public virtual void Start() { }
 
     protected void UpdateRaycastOrigins()
     {
