@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Scoop
   layers:
   - Default
   - TransparentFX
