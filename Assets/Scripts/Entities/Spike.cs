@@ -8,7 +8,6 @@ public class Spike : MonoBehaviour
         if (collision.gameObject.layer == Layers.Death ||
 	        collision.CompareTag(Tags.Player))
         {
-            Debug.Log("DESTORYYYYYY");
             Destroy(gameObject);
         }
     }
