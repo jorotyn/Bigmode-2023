@@ -1,4 +1,13 @@
+using System.Collections;
 using UnityEngine;
+
+//todo: move
+public enum Ability
+{ 
+    WallJump,
+    DoubleJump,
+    Invincibility
+}
 
 [RequireComponent(typeof(PlayerCharacterController))]
 public class PlayerScript : MonoBehaviour
@@ -17,9 +26,15 @@ public class PlayerScript : MonoBehaviour
 
     private float _velocity_x_smoothing;// don't touch this, it's for SmoothDamp to keep track of
 
+    private bool _canTakeDamage = true;
+
+    private SpriteRenderer _spriteRenderer;
+
     public void Start()
     {
         CharacterController = GetComponent<PlayerCharacterController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         _gravity = -(2 * JumpHeight) / Mathf.Pow(JumpTimeToApex, 2);
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
     }
@@ -42,5 +57,37 @@ public class PlayerScript : MonoBehaviour
         _velocity.x = Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
         _velocity.y += _gravity * Time.deltaTime;
         CharacterController.Move(_velocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    { 
+        if (collision.CompareTag("Spike"))
+        {
+            HandleSpikeDamage();
+		}
+    }
+
+    private void HandleSpikeDamage()
+    {
+        if (!_canTakeDamage) return;
+        StartCoroutine(DisableDamage());
+    }
+
+    private IEnumerator DisableDamage(float seconds = 1.5f)
+    {
+        _canTakeDamage = false;
+        StartCoroutine(ShowInvincibility());
+        yield return new WaitForSeconds(seconds);
+        _canTakeDamage = true;
+    }
+
+    private IEnumerator ShowInvincibility()
+    {
+        while (!_canTakeDamage)
+        {
+            _spriteRenderer.enabled = !_spriteRenderer.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
+        _spriteRenderer.enabled = true;
     }
 }

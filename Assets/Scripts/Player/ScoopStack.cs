@@ -1,9 +1,10 @@
+using static PieConstants;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoopStack : MonoBehaviour
 {
-    public int MaxScoops = 3;
+    public int MaxScoops = 1;
 
     private readonly List<Scoop> _scoops = new();
 
@@ -11,7 +12,7 @@ public class ScoopStack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Scoop") && !_addingScoop)
+        if (collision.CompareTag(Tags.Scoop) && !_addingScoop)
         {
             AddScoopToQueue(collision.gameObject.GetComponent<Scoop>());
         }
