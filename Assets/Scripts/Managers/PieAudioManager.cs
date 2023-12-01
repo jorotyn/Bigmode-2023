@@ -6,9 +6,11 @@ public class PieAudioManager : MonoBehaviour
 {
     private FMOD.Studio.EventInstance jumpinstance;
     private FMOD.Studio.EventInstance hurtinstance;
+    private FMOD.Studio.EventInstance stepinstance;
 
     public string JumpEvent;
     public string HurtEvent;
+    public string StepEvent;
 
     public PlayerCharacterController characterController;
 

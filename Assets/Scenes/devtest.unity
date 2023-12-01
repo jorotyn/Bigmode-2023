@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpEvent: event:/Jump
   HurtEvent: event:/Hurt
+  StepEvent: event:/FOOTSTEP
   characterController: {fileID: 1049500704}
 --- !u!4 &108658111
 Transform:
