@@ -8,6 +8,7 @@ public class PlayerCharacterController : RaycastMovementController
     public CollisionInfo CurrentCollisions;
 
     public bool IsMovingOnGround = false;
+    
 
     public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {
@@ -33,6 +34,7 @@ public class PlayerCharacterController : RaycastMovementController
             CurrentCollisions.Below = true;
         }
         IsMovingOnGround = velocity.x != 0 && CurrentCollisions.Below;
+        
     }
 
     private Vector2 VerticalCollisions(Vector2 velocity)

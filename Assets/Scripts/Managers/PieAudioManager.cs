@@ -17,6 +17,7 @@ public class PieAudioManager : MonoBehaviour
 
     public float footsteptime;
     public float counter = 0f;
+    public float speed ;
 
     
 
@@ -52,6 +53,8 @@ public class PieAudioManager : MonoBehaviour
             jumpinstance.start();
            
         }
+
+       
     }
 
     public void Hurt()
