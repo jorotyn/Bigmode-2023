@@ -24,7 +24,7 @@ public class PieAudioManager : MonoBehaviour
    
     void Update()
     {
-         if (Input.GetKeyDown("space") && characterController.CurrentCollisions.Below)
+         if (InputManager.JumpPressed() && characterController.CurrentCollisions.Below)
         {
             jumpinstance.start();
            

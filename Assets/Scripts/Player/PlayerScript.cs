@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour
 
         float targetX = input.x * MoveSpeed;
         float accelerationTime = CharacterController.CurrentCollisions.Below ? AccelerationTimeGround : AccelerationTimeAir;
-        _velocity.x = Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
+        _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
         _velocity.y += _gravity * Time.deltaTime;
         CharacterController.Move(_velocity * Time.deltaTime);
     }
