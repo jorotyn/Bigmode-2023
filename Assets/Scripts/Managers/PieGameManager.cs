@@ -48,7 +48,7 @@ public class PieGameManager : MonoBehaviour
 
     private IEnumerator SpawnSpikes()
     {
-        while (true)//for now
+        while (false)//for now
         {
             yield return new WaitForSeconds(3f);
 
