@@ -3,7 +3,7 @@ using UnityEngine;
 
 //todo: move
 public enum Ability
-{ 
+{
     WallJump,
     DoubleJump,
     Invincibility
@@ -58,14 +58,16 @@ public class PlayerScript : MonoBehaviour
         _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
         _velocity.y += _gravity * Time.deltaTime;
         CharacterController.Move(_velocity * Time.deltaTime);
+
+        HandleSpriteFlip();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
+    {
         if (collision.CompareTag("Spike"))
         {
             HandleSpikeDamage();
-		}
+        }
     }
 
     private void HandleSpikeDamage()
@@ -91,5 +93,20 @@ public class PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         _spriteRenderer.enabled = true;
+    }
+
+    private void HandleSpriteFlip()
+    {
+        // Flip the player sprite based on movement direction
+        if (_velocity.x > 0)
+        {
+            // Player is moving right, flip the sprite to face right
+            _spriteRenderer.flipX = false;
+        }
+        else if (_velocity.x < 0)
+        {
+            // Player is moving left, flip the sprite to face left
+            _spriteRenderer.flipX = true;
+        }
     }
 }
