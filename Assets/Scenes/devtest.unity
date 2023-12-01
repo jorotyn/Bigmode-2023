@@ -231,12 +231,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddbafeedff3c45c8bc1e4dde177fa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpEvent: event:/Jump
+  JumpEvent: event:/JUMP
   HurtEvent: event:/Hurt
   StepEvent: event:/FOOTSTEP
   characterController: {fileID: 1049500704}
   footsteptime: 1.3
   counter: 0
+  speed: 0
 --- !u!4 &108658111
 Transform:
   m_ObjectHideFlags: 0
@@ -285,6 +286,7 @@ MonoBehaviour:
   player: {fileID: 1049500698}
   fmodEvent: event:/MultiTrack Music
   intensity: 0
+  theme: 0
 --- !u!1 &206737495
 GameObject:
   m_ObjectHideFlags: 0

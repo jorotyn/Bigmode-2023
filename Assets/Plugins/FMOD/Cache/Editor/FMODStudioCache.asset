@@ -68,10 +68,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/JUMP
   Guid:
-    Data1: -1750134013
-    Data2: 1093956157
-    Data3: 1053554098
-    Data4: -1334681636
+    Data1: 1781780275
+    Data2: 1254145252
+    Data3: 1945019312
+    Data4: -91212653
   Banks:
   - {fileID: 1400903939927026690}
   IsStream: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   - {fileID: 1400903939927026690}
   StringsBanks:
   - {fileID: 6117681529097798785}
-  cacheTime: 638370625248298697
+  cacheTime: 638370637071210140
   cacheVersion: 131609
 --- !u!114 &974969316473941996
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638370625248271881
+  lastModified: 638370637071168705
   FileSizes: []
   Exists: 1
 --- !u!114 &4441094607580336863
@@ -194,10 +194,10 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638370625248298697
+  lastModified: 638370637071210140
   FileSizes:
   - Name: 
-    Value: 982
+    Value: 1104
   Exists: 1
 --- !u!114 &8201546944038995616
 MonoBehaviour:
