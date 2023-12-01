@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 108658111}
   - component: {fileID: 108658110}
   - component: {fileID: 108658113}
-  - component: {fileID: 108658112}
+  - component: {fileID: 108658114}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -231,6 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddbafeedff3c45c8bc1e4dde177fa0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpEvent: event:/Jump
+  HurtEvent: event:/Hurt
+  characterController: {fileID: 1049500704}
 --- !u!4 &108658111
 Transform:
   m_ObjectHideFlags: 0
@@ -246,41 +249,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &108658112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108658109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1398628180
-      Data2: 1162896125
-      Data3: 371629223
-      Data4: 412095473
-    Path: event:/MultiTrack Music
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params:
-  - Name: Intensity
-    Value: 1
-  - Name: Hauteur
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &108658113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +267,21 @@ MonoBehaviour:
   - Master
   CollisionTag: 
   PreloadSamples: 0
+--- !u!114 &108658114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108658109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24333be58427e49889a869b3345d2999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1049500698}
+  fmodEvent: event:/MultiTrack Music
+  intensity: 0
 --- !u!1 &206737495
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +683,6 @@ GameObject:
   m_Component:
   - component: {fileID: 681024978}
   - component: {fileID: 681024977}
-  - component: {fileID: 681024976}
   - component: {fileID: 681024979}
   - component: {fileID: 681024980}
   m_Layer: 0
@@ -710,14 +692,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &681024976
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681024975}
-  m_Enabled: 0
 --- !u!20 &681024977
 Camera:
   m_ObjectHideFlags: 0
@@ -1494,7 +1468,6 @@ GameObject:
   - component: {fileID: 1049500703}
   - component: {fileID: 1049500704}
   - component: {fileID: 1049500706}
-  - component: {fileID: 1049500707}
   m_Layer: 10
   m_Name: someplayer
   m_TagString: Player
@@ -1610,6 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 1049500704}
+  audioPieManager: {fileID: 108658110}
   JumpHeight: 4
   JumpTimeToApex: 0.4
   MoveSpeed: 6
@@ -1692,20 +1666,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScoops: 3
---- !u!114 &1049500707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049500698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24333be58427e49889a869b3345d2999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fmodEvent: event:/MultiTrack Music
-  intensity: 0
 --- !u!1 &1114279542
 GameObject:
   m_ObjectHideFlags: 0

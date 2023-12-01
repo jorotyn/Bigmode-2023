@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class PieAudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private FMOD.Studio.EventInstance jumpinstance;
+    private FMOD.Studio.EventInstance hurtinstance;
+
+    public string JumpEvent;
+    public string HurtEvent;
+
+    public PlayerCharacterController characterController;
+
     void Start()
     {
+        jumpinstance = FMODUnity.RuntimeManager.CreateInstance(JumpEvent);
+        hurtinstance = FMODUnity.RuntimeManager.CreateInstance(HurtEvent);
         
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
+         if (Input.GetKeyDown("space") && characterController.CurrentCollisions.Below)
+        {
+            jumpinstance.start();
+           
+        }
         
+    }
+
+    public void Hurt()
+    {
+        hurtinstance.start();
     }
 }

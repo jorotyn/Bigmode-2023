@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6502202335452281923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Hurt
+  m_EditorClassIdentifier: 
+  Path: event:/Hurt
+  Guid:
+    Data1: -1339468980
+    Data2: 1094465038
+    Data3: 88399279
+    Data4: 1245478705
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-833870135899629379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/JUMP
+  m_EditorClassIdentifier: 
+  Path: event:/JUMP
+  Guid:
+    Data1: -1750134013
+    Data2: 1093956157
+    Data3: 1053554098
+    Data4: -1334681636
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,12 +72,15 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 3749023582592774946}
   - {fileID: 4441094607580336863}
+  - {fileID: -833870135899629379}
+  - {fileID: -6502202335452281923}
+  - {fileID: 8201546944038995616}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1400903939927026690}
   StringsBanks:
   - {fileID: 6117681529097798785}
-  cacheTime: 638370384323253729
+  cacheTime: 638370428246418816
   cacheVersion: 131609
 --- !u!114 &974969316473941996
 MonoBehaviour:
@@ -64,7 +121,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638370384323174665
+  lastModified: 638370428246368713
   FileSizes: []
   Exists: 1
 --- !u!114 &3749023582592774946
@@ -137,8 +194,35 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638370384323253729
+  lastModified: 638370428246418816
   FileSizes:
   - Name: 
-    Value: 878
+    Value: 1000
   Exists: 1
+--- !u!114 &8201546944038995616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FOOTSTEP
+  m_EditorClassIdentifier: 
+  Path: event:/FOOTSTEP
+  Guid:
+    Data1: 469404660
+    Data2: 1272433162
+    Data3: -899868995
+    Data4: -673120674
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

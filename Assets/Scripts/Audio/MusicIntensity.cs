@@ -7,7 +7,7 @@ public class MusicIntensity : MonoBehaviour
     
     private FMOD.Studio.EventInstance instance;
 
-    
+    public GameObject player;
     public string fmodEvent;
 
     [SerializeField][Range(0f, 1f)]
@@ -23,7 +23,7 @@ public class MusicIntensity : MonoBehaviour
     
     void Update()
     {
-        intensity = (gameObject.transform.position.y / 20);
+        intensity = (player.transform.position.y / 20);
         instance.setParameterByName("Hauteur", intensity);
         
     }

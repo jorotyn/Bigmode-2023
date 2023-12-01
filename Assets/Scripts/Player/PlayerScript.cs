@@ -13,6 +13,7 @@ public enum Ability
 public class PlayerScript : MonoBehaviour
 {
     public PlayerCharacterController CharacterController;
+    public PieAudioManager audioPieManager;
     public float JumpHeight = 3.5f;
     public float JumpTimeToApex = .4f;
     public float MoveSpeed = 6f;
@@ -71,6 +72,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!_canTakeDamage) return;
         StartCoroutine(DisableDamage());
+        audioPieManager.Hurt();
     }
 
     private IEnumerator DisableDamage(float seconds = 1.5f)
