@@ -14,26 +14,53 @@ public class PieAudioManager : MonoBehaviour
 
     public PlayerCharacterController characterController;
 
+
+    public float footsteptime;
+    public float counter = 0f;
+
+    
+
     void Start()
     {
         jumpinstance = FMODUnity.RuntimeManager.CreateInstance(JumpEvent);
         hurtinstance = FMODUnity.RuntimeManager.CreateInstance(HurtEvent);
+        stepinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
         
     }
 
    
-    void Update()
+    void FixedUpdate()
     {
-         if (InputManager.JumpPressed() && characterController.CurrentCollisions.Below)
+        
+
+        if (counter <= footsteptime )
+            {
+               counter+= 0.1f;
+            }
+        else if (characterController.IsMovingOnGround)
+            {
+                 Step();
+                 counter = 0f;
+            }
+        
+    }
+
+    void Update ()
+    {
+         if (Input.GetKeyDown("space") && characterController.CurrentCollisions.Below)
         {
             jumpinstance.start();
            
         }
-        
     }
 
     public void Hurt()
     {
         hurtinstance.start();
+    }
+
+    private void Step()
+    {
+        stepinstance.start();
     }
 }
