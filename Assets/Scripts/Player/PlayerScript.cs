@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     private float _jumpVelocity = 8f;
     private float _gravity = -20;
+    private int _jumpCount = 0;
+    private const int MaxJumpCount = 2;
 
     private Vector3 _velocity;
 
@@ -39,12 +41,24 @@ public class PlayerScript : MonoBehaviour
         if (CharacterController.CurrentCollisions.Above || CharacterController.CurrentCollisions.Below)
         {
             _velocity.y = 0;
+            if (CharacterController.CurrentCollisions.Below)
+            {
+                _jumpCount = 0; // Reset jump count when player touches the ground
+            }
         }
 
         var input = InputManager.CurrentDirectionalInput();
-        if (InputManager.JumpPressed() && CharacterController.CurrentCollisions.Below)
+
+        // Check if the jump button is pressed and the player has not exceeded the maximum number of jumps
+        if (InputManager.JumpPressed())
         {
-            _velocity.y = _jumpVelocity;
+            // Check if either it's the first jump (on ground) or the player has double jump ability for the second jump
+            if ((_jumpCount < 1 && CharacterController.CurrentCollisions.Below) ||
+                (_jumpCount < MaxJumpCount && _playerAbilities.CurrentAbility == AbilityEnum.DoubleJump))
+            {
+                _velocity.y = _jumpVelocity;
+                _jumpCount++;
+            }
         }
 
         float targetX = input.x * MoveSpeed;
