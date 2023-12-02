@@ -8,7 +8,7 @@ public class PlayerCharacterController : RaycastMovementController
     public CollisionInfo CurrentCollisions;
 
     public bool IsMovingOnGround = false;
-    
+
 
     public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {
@@ -34,7 +34,7 @@ public class PlayerCharacterController : RaycastMovementController
             CurrentCollisions.Below = true;
         }
         IsMovingOnGround = velocity.x != 0 && CurrentCollisions.Below;
-        
+
     }
 
     private Vector2 VerticalCollisions(Vector2 velocity)
@@ -101,6 +101,13 @@ public class PlayerCharacterController : RaycastMovementController
                 }
 
                 var slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                if (slopeAngle > MaxClimbAngle) // Assuming MaxClimbAngle is the maximum angle for a walkable slope
+                {
+                    // Set wall collision flags
+                    CurrentCollisions.WallLeft = directionX == Vector2.left.x;
+                    CurrentCollisions.WallRight = directionX == Vector2.right.x;
+                }
+
                 if (i == 0 && slopeAngle <= MaxClimbAngle)
                 {
                     var distanceToSlopeStart = 0f;
@@ -184,15 +191,15 @@ public class PlayerCharacterController : RaycastMovementController
     public struct CollisionInfo
     {
         public bool Above, Below, Left, Right;
-        public bool ClimbingSlope, DescendingSlope;
+        public bool ClimbingSlope, DescendingSlope, WallLeft, WallRight;
         public float SlopeAngle, SlopeAngleOld;
-
         public Vector2 VelocityOld;
 
         public void Reset()
         {
             Above = Below = Left = Right = false;
             ClimbingSlope = DescendingSlope = false;
+            WallLeft = WallRight = false;
             SlopeAngleOld = SlopeAngle;
             SlopeAngle = 0;
         }

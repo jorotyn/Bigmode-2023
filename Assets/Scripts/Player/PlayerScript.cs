@@ -49,16 +49,24 @@ public class PlayerScript : MonoBehaviour
 
         var input = InputManager.CurrentDirectionalInput();
 
-        // Check if the jump button is pressed and the player has not exceeded the maximum number of jumps
-        if (InputManager.JumpPressed())
+        // Wall jump logic
+        if ((CharacterController.CurrentCollisions.WallLeft || CharacterController.CurrentCollisions.WallRight) &&
+            !CharacterController.CurrentCollisions.Below && // Ensure the player is not on the ground
+            InputManager.JumpPressed() && _playerAbilities.CurrentAbility == AbilityEnum.WallJump)
         {
-            // Check if either it's the first jump (on ground) or the player has double jump ability for the second jump
-            if ((_jumpCount < 1 && CharacterController.CurrentCollisions.Below) ||
-                (_jumpCount < MaxJumpCount && _playerAbilities.CurrentAbility == AbilityEnum.DoubleJump))
-            {
-                _velocity.y = _jumpVelocity;
-                _jumpCount++;
-            }
+            _velocity.y = _jumpVelocity; // Wall jump velocity
+            _velocity.x = CharacterController.CurrentCollisions.WallLeft ? MoveSpeed : -MoveSpeed; // Push off the wall
+            _jumpCount = 1; // Reset the jump count to allow for another jump after wall jump
+                            // Additional logic to ensure wall jump is correctly handled
+        }
+
+        // Jump logic
+        else if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
+                (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || CharacterController.CurrentCollisions.Below))
+        {
+            // Check if the jump button is pressed and the player has not exceeded the maximum number of jumps
+            _velocity.y = _jumpVelocity;
+            _jumpCount++;
         }
 
         float targetX = input.x * MoveSpeed;
