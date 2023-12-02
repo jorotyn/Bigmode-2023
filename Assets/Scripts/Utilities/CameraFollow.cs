@@ -33,13 +33,13 @@ public class CameraFollow : MonoBehaviour
         if (_focusArea.Velocity.x != 0)
         {
             _lookAheadDirX = Mathf.Sign(_focusArea.Velocity.x);
-
             var input = InputManager.CurrentDirectionalInput();
-            if(input.x != 0 && Mathf.Sign(input.x) == Mathf.Sign(_focusArea.Velocity.x))
+
+            if (input.x != 0 && Mathf.Sign(input.x) == Mathf.Sign(_focusArea.Velocity.x))
             {
                 _lookAheadStopped = false;
                 _targetLookAheadX = _lookAheadDirX * LookAheadX;
-	        }
+            }
             else
             {
                 if (!_lookAheadStopped)
@@ -47,15 +47,23 @@ public class CameraFollow : MonoBehaviour
                     _lookAheadStopped = true;
                     _targetLookAheadX = _currentLookAheadX + (_lookAheadDirX * LookAheadX - _currentLookAheadX) / 4f;
                 }
-	        }
+            }
         }
 
-        _targetLookAheadX = _lookAheadDirX * LookAheadX;
         _currentLookAheadX = Mathf.SmoothDamp(_currentLookAheadX, _targetLookAheadX, ref _smooth_look_velocity_x, LookSmoothTimeX);
 
-        focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
-        focusPos += Vector2.right * _currentLookAheadX;
+        // Updated vertical camera movement logic
+        if (focusPos.y > transform.position.y)
+        {
+            focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
+        }
+        else
+        {
+            // Keep the camera's y position unchanged if the target moves downwards
+            focusPos.y = transform.position.y;
+        }
 
+        focusPos += Vector2.right * _currentLookAheadX;
         transform.position = (Vector3)focusPos + Vector3.forward * -10;
     }
 
