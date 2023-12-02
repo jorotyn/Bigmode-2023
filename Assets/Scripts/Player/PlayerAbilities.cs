@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum AbilityEnum
 {
@@ -11,8 +12,11 @@ public enum AbilityEnum
 public class PlayerAbilities : MonoBehaviour
 {
     #region Serialized Fields
-    [SerializeField] AbilityEnum ability = AbilityEnum.None;
+    [Header("References")]
     [SerializeField] private PlayerHealth playerHealth;
+
+    [Header("Ability")]
+    [SerializeField] AbilityEnum ability = AbilityEnum.None;
     #endregion
 
     #region Properties
@@ -24,16 +28,20 @@ public class PlayerAbilities : MonoBehaviour
             ability = value;
             if (ability == AbilityEnum.Invincibility)
             {
-                // Set _canTakeDamage to false when the ability is Invincibility
                 playerHealth.SetCanTakeDamage(false);
             }
             else
             {
-                // Set _canTakeDamage to true for other abilities
                 playerHealth.SetCanTakeDamage(true);
             }
+            onAbilityChange.Invoke(ability);
         }
     }
+    #endregion
+
+    #region Events
+    [Header("Events")]
+    public UnityEvent<AbilityEnum> onAbilityChange = new UnityEvent<AbilityEnum>();
     #endregion
 
     #region Unity Lifecycle

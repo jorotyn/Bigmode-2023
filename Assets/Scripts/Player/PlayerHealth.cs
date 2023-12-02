@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
     #region Serialized Fields
+    [Header("References")]
     [SerializeField] private PieAudioManager audioPieManager;
     #endregion
 
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     #endregion
 
     #region Events
+    [Header("Events")]
     public UnityEvent onPlayerDeath;
     #endregion
 

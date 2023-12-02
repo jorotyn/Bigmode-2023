@@ -2352,8 +2352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d682670a3364c4d4595aecb2225840f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: 0
   playerHealth: {fileID: 1049500708}
+  ability: 0
+  onAbilityChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1049500708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3598,6 +3601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 962523565}
   playerHealth: {fileID: 1049500708}
+  currentModeText: {fileID: 1243545121}
 --- !u!4 &1815451898
 Transform:
   m_ObjectHideFlags: 0
