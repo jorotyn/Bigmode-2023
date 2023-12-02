@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerCharacterController))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerScript : MonoBehaviour
 {
     public PlayerCharacterController CharacterController;
@@ -11,18 +12,15 @@ public class PlayerScript : MonoBehaviour
     public float MoveSpeed = 6f;
     public float AccelerationTimeAir = .2f;
     public float AccelerationTimeGround = .1f;
+    public AbilityEnum InitialAbility = AbilityEnum.None;
 
-    private float _jumpVelocity = 8f;
-    private float _gravity = -20;
-    private int _jumpCount = 0;
+    private float _gravity;
+    private float _jumpVelocity;
+    private int _jumpCount;
     private const int MaxJumpCount = 2;
-
     private Vector3 _velocity;
-
-    private float _velocity_x_smoothing;// don't touch this, it's for SmoothDamp to keep track of
-
+    private float _velocity_x_smoothing;
     private bool _canTakeDamage = true;
-
     private SpriteRenderer _spriteRenderer;
     private PlayerAbilities _playerAbilities;
 
@@ -34,9 +32,29 @@ public class PlayerScript : MonoBehaviour
 
         _gravity = -(2 * JumpHeight) / Mathf.Pow(JumpTimeToApex, 2);
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
+        _jumpCount = 0;
+        _playerAbilities.CurrentAbility = InitialAbility;
     }
 
     public void Update()
+    {
+        HandleCollisions();
+
+        var input = InputManager.CurrentDirectionalInput();
+
+        HandleWallJump(input);
+        HandleRegularJump(input);
+
+        float targetX = input.x * MoveSpeed;
+        float accelerationTime = CharacterController.CurrentCollisions.Below ? AccelerationTimeGround : AccelerationTimeAir;
+        _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
+        _velocity.y += _gravity * Time.deltaTime;
+        CharacterController.Move(_velocity * Time.deltaTime);
+
+        HandleSpriteFlip();
+    }
+
+    private void HandleCollisions()
     {
         if (CharacterController.CurrentCollisions.Above || CharacterController.CurrentCollisions.Below)
         {
@@ -46,36 +64,28 @@ public class PlayerScript : MonoBehaviour
                 _jumpCount = 0; // Reset jump count when player touches the ground
             }
         }
+    }
 
-        var input = InputManager.CurrentDirectionalInput();
-
-        // Wall jump logic
+    private void HandleWallJump(Vector2 input)
+    {
         if ((CharacterController.CurrentCollisions.WallLeft || CharacterController.CurrentCollisions.WallRight) &&
-            !CharacterController.CurrentCollisions.Below && // Ensure the player is not on the ground
+            !CharacterController.CurrentCollisions.Below &&
             InputManager.JumpPressed() && _playerAbilities.CurrentAbility == AbilityEnum.WallJump)
         {
-            _velocity.y = _jumpVelocity; // Wall jump velocity
-            _velocity.x = CharacterController.CurrentCollisions.WallLeft ? MoveSpeed : -MoveSpeed; // Push off the wall
-            _jumpCount = 1; // Reset the jump count to allow for another jump after wall jump
-                            // Additional logic to ensure wall jump is correctly handled
+            _velocity.y = _jumpVelocity;
+            _velocity.x = CharacterController.CurrentCollisions.WallLeft ? MoveSpeed : -MoveSpeed;
+            _jumpCount = 1;
         }
+    }
 
-        // Jump logic
-        else if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
-                (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || CharacterController.CurrentCollisions.Below))
+    private void HandleRegularJump(Vector2 input)
+    {
+        if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
+            (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || CharacterController.CurrentCollisions.Below))
         {
-            // Check if the jump button is pressed and the player has not exceeded the maximum number of jumps
             _velocity.y = _jumpVelocity;
             _jumpCount++;
         }
-
-        float targetX = input.x * MoveSpeed;
-        float accelerationTime = CharacterController.CurrentCollisions.Below ? AccelerationTimeGround : AccelerationTimeAir;
-        _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
-        _velocity.y += _gravity * Time.deltaTime;
-        CharacterController.Move(_velocity * Time.deltaTime);
-
-        HandleSpriteFlip();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -113,15 +123,12 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
-        // Flip the player sprite based on movement direction
         if (_velocity.x > 0)
         {
-            // Player is moving right, flip the sprite to face right
             _spriteRenderer.flipX = false;
         }
         else if (_velocity.x < 0)
         {
-            // Player is moving left, flip the sprite to face left
             _spriteRenderer.flipX = true;
         }
     }

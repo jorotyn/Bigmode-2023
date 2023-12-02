@@ -1762,6 +1762,7 @@ MonoBehaviour:
   MoveSpeed: 6
   AccelerationTimeAir: 0.2
   AccelerationTimeGround: 0.1
+  InitialAbility: 0
 --- !u!114 &1049500704
 MonoBehaviour:
   m_ObjectHideFlags: 0
