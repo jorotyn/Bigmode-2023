@@ -1,14 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-//todo: move
-public enum Ability
-{
-    WallJump,
-    DoubleJump,
-    Invincibility
-}
-
 [RequireComponent(typeof(PlayerCharacterController))]
 public class PlayerScript : MonoBehaviour
 {
@@ -30,11 +22,13 @@ public class PlayerScript : MonoBehaviour
     private bool _canTakeDamage = true;
 
     private SpriteRenderer _spriteRenderer;
+    private PlayerAbilities _playerAbilities;
 
     public void Start()
     {
         CharacterController = GetComponent<PlayerCharacterController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _playerAbilities = GetComponent<PlayerAbilities>();
 
         _gravity = -(2 * JumpHeight) / Mathf.Pow(JumpTimeToApex, 2);
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
