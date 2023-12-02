@@ -72,5 +72,10 @@ public class PlayerHealth : MonoBehaviour
         onPlayerDeath.Invoke();
         gameObject.SetActive(false);
     }
+
+    public void SetCanTakeDamage(bool canTakeDamage)
+    {
+        _canTakeDamage = canTakeDamage;
+    }
     #endregion
 }
