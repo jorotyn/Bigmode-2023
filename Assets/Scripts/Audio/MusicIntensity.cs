@@ -12,7 +12,12 @@ public class MusicIntensity : MonoBehaviour
 
     [SerializeField][Range(0f, 1f)]
     private float intensity;
+
+    public float PitchSpeed;
+    private float pitchValue;
     public int theme; 
+
+    public bool DIE;
 
 
     void Start()
@@ -29,6 +34,13 @@ public class MusicIntensity : MonoBehaviour
     {
         intensity = (player.transform.position.y / 20);
         instance.setParameterByName("Hauteur", intensity);
+
+
+         if (DIE)
+        {
+            pitchValue += PitchSpeed;
+            instance.setParameterByName("PITCH SLOW", pitchValue);
+        }
         
     }
 

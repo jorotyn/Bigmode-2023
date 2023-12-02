@@ -234,12 +234,13 @@ MonoBehaviour:
   JumpEvent: event:/JUMP
   HurtEvent: event:/Hurt
   StepEvent: event:/FOOTSTEP
+  WallJumpEvent: event:/WallSlide
   characterController: {fileID: 1049500704}
   playerAbilities: {fileID: 1049500707}
   playerScript: {fileID: 1049500703}
+  musicIntensity: {fileID: 108658114}
   footsteptime: 1.3
   counter: 0
-  speed: 0
 --- !u!4 &108658111
 Transform:
   m_ObjectHideFlags: 0
@@ -288,7 +289,9 @@ MonoBehaviour:
   player: {fileID: 1049500698}
   fmodEvent: event:/MultiTrack Music
   intensity: 0
+  PitchSpeed: 0.003
   theme: 0
+  DIE: 0
 --- !u!1 &206737495
 GameObject:
   m_ObjectHideFlags: 0

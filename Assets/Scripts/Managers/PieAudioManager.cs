@@ -19,12 +19,16 @@ public class PieAudioManager : MonoBehaviour
 
     public PlayerScript playerScript;
 
+    public MusicIntensity musicIntensity;
+
 
     public float footsteptime;
     public float counter = 0f;
-    public float speed ;
+   
+   
 
-    public bool canwallsound = true;
+    
+    
 
     
 
@@ -40,6 +44,7 @@ public class PieAudioManager : MonoBehaviour
    
     void FixedUpdate()
     {
+       
         
 
         if (counter <= footsteptime )
@@ -125,5 +130,10 @@ public class PieAudioManager : MonoBehaviour
     public void Jump()
     {
         jumpinstance.start();
+    }
+
+    public void DieWarp()
+    {
+        musicIntensity.DIE = true;
     }
 }

@@ -73,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
     {
         onPlayerDeath.Invoke();
         gameObject.SetActive(false);
+        audioPieManager.DieWarp();
     }
 
     public void SetCanTakeDamage(bool canTakeDamage)
