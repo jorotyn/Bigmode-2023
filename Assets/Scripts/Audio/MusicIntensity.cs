@@ -31,4 +31,9 @@ public class MusicIntensity : MonoBehaviour
         instance.setParameterByName("Hauteur", intensity);
         
     }
+
+    public void StopMusic()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 }
