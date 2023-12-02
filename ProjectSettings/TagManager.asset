@@ -11,6 +11,7 @@ TagManager:
   - NoMask
   - Scoop
   - Spike
+  - Death
   layers:
   - Default
   - TransparentFX

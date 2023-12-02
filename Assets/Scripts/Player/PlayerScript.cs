@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerCharacterController))]
@@ -6,7 +5,6 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public PlayerCharacterController CharacterController;
-    public PieAudioManager audioPieManager;
     public float JumpHeight = 3.5f;
     public float JumpTimeToApex = .4f;
     public float MoveSpeed = 6f;
@@ -20,11 +18,10 @@ public class PlayerScript : MonoBehaviour
     private const int MaxJumpCount = 2;
     private Vector3 _velocity;
     private float _velocity_x_smoothing;
-    private bool _canTakeDamage = true;
     private SpriteRenderer _spriteRenderer;
     private PlayerAbilities _playerAbilities;
 
-    public void Start()
+    private void Start()
     {
         CharacterController = GetComponent<PlayerCharacterController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,7 +33,7 @@ public class PlayerScript : MonoBehaviour
         _playerAbilities.CurrentAbility = InitialAbility;
     }
 
-    public void Update()
+    private void Update()
     {
         HandleCollisions();
 
@@ -86,39 +83,6 @@ public class PlayerScript : MonoBehaviour
             _velocity.y = _jumpVelocity;
             _jumpCount++;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Spike"))
-        {
-            HandleSpikeDamage();
-        }
-    }
-
-    private void HandleSpikeDamage()
-    {
-        if (!_canTakeDamage) return;
-        StartCoroutine(DisableDamage());
-        audioPieManager.Hurt();
-    }
-
-    private IEnumerator DisableDamage(float seconds = 1.5f)
-    {
-        _canTakeDamage = false;
-        StartCoroutine(ShowInvincibility());
-        yield return new WaitForSeconds(seconds);
-        _canTakeDamage = true;
-    }
-
-    private IEnumerator ShowInvincibility()
-    {
-        while (!_canTakeDamage)
-        {
-            _spriteRenderer.enabled = !_spriteRenderer.enabled;
-            yield return new WaitForSeconds(0.1f);
-        }
-        _spriteRenderer.enabled = true;
     }
 
     private void HandleSpriteFlip()
