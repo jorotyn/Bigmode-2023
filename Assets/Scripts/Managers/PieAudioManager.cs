@@ -24,6 +24,8 @@ public class PieAudioManager : MonoBehaviour
 
     public float footsteptime;
     public float counter = 0f;
+    private bool CanWallsoud = true;
+
    
    
 
@@ -37,7 +39,7 @@ public class PieAudioManager : MonoBehaviour
         jumpinstance = FMODUnity.RuntimeManager.CreateInstance(JumpEvent);
         hurtinstance = FMODUnity.RuntimeManager.CreateInstance(HurtEvent);
         stepinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
-        walljumpinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
+        walljumpinstance = FMODUnity.RuntimeManager.CreateInstance(WallJumpEvent);
         
     }
 
@@ -100,8 +102,13 @@ public class PieAudioManager : MonoBehaviour
           if (characterController.CurrentCollisions.WallRight ||
               characterController.CurrentCollisions.WallLeft )
           {
-            
+
+            if (CanWallsoud)
+            {
               walljumpinstance.start();
+              CanWallsoud = false;
+              
+            }
               
             
           }
@@ -110,6 +117,8 @@ public class PieAudioManager : MonoBehaviour
               characterController.CurrentCollisions.WallLeft == false )
           {
               walljumpinstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+              CanWallsoud = true;
+              //Debug.Log("WallSlide");
              
           }
         }
