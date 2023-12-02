@@ -8,11 +8,13 @@ public class PieAudioManager : MonoBehaviour
     private FMOD.Studio.EventInstance hurtinstance;
     private FMOD.Studio.EventInstance stepinstance;
     private FMOD.Studio.EventInstance walljumpinstance;
+    private FMOD.Studio.EventInstance DoubleJumpinstane;
 
     public string JumpEvent;
     public string HurtEvent;
     public string StepEvent;
     public string WallJumpEvent;
+    public string DoubleJumpEvent;
 
     public PlayerCharacterController characterController;
     public PlayerAbilities playerAbilities;
@@ -40,6 +42,7 @@ public class PieAudioManager : MonoBehaviour
         hurtinstance = FMODUnity.RuntimeManager.CreateInstance(HurtEvent);
         stepinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
         walljumpinstance = FMODUnity.RuntimeManager.CreateInstance(WallJumpEvent);
+        DoubleJumpinstane = FMODUnity.RuntimeManager.CreateInstance(DoubleJumpEvent);
         
     }
 
@@ -71,9 +74,9 @@ public class PieAudioManager : MonoBehaviour
             }
            
             if (playerAbilities.ability == AbilityEnum.DoubleJump
-                && playerScript._jumpCount <= 1)
+                && playerScript._jumpCount == 1)
             {
-              jumpinstance.start();
+              DoubleJumpinstane.start();
             }
 
             if (playerAbilities.ability == AbilityEnum.WallJump

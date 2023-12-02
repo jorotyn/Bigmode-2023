@@ -235,6 +235,7 @@ MonoBehaviour:
   HurtEvent: event:/Hurt
   StepEvent: event:/FOOTSTEP
   WallJumpEvent: event:/WallSlide
+  DoubleJumpEvent: event:/DoubleJump
   characterController: {fileID: 1049500704}
   playerAbilities: {fileID: 1049500707}
   playerScript: {fileID: 1049500703}
