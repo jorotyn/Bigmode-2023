@@ -2023,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &962523566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2253,13 +2253,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92f359d3fe3b4781b4c5116dd58d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterController: {fileID: 1049500704}
+  InitialAbility: 0
+  MoveSpeed: 6
   JumpHeight: 4
   JumpTimeToApex: 0.4
-  MoveSpeed: 6
   AccelerationTimeAir: 0.2
   AccelerationTimeGround: 0.1
-  InitialAbility: 0
+  WallSlideSpeedMax: 3
+  LimitWallJumps: 0
+  RequireWallJumpAbilityForWallSlide: 1
 --- !u!114 &1049500704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3972,10 +3974,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 681024978}
-  - {fileID: 1950937494}
+  - {fileID: 1454337367}
+  - {fileID: 1288455516}
   - {fileID: 509148034}
   - {fileID: 108658111}
   - {fileID: 1815451898}
+  - {fileID: 1950937494}
   - {fileID: 1167488155}
   - {fileID: 1000932953}
   - {fileID: 1961812249}
@@ -3983,5 +3987,3 @@ SceneRoots:
   - {fileID: 1240051604610347222}
   - {fileID: 3868534972100439742}
   - {fileID: 1049500702}
-  - {fileID: 1454337367}
-  - {fileID: 1288455516}
