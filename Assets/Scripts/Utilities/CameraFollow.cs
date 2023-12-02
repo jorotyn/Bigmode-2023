@@ -9,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     public float VerticalSmoothTime = 0.2f;
     public float VerticalOffset = 1;
 
+    [SerializeField] private bool allowFallingOffScreen = true;
+
     private FocusArea _focusArea;
 
     private float _currentLookAheadX;
@@ -52,15 +54,20 @@ public class CameraFollow : MonoBehaviour
 
         _currentLookAheadX = Mathf.SmoothDamp(_currentLookAheadX, _targetLookAheadX, ref _smooth_look_velocity_x, LookSmoothTimeX);
 
-        // Updated vertical camera movement logic
-        if (focusPos.y > transform.position.y)
+        if (allowFallingOffScreen)
         {
-            focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
+            if (focusPos.y > transform.position.y)
+            {
+                focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
+            }
+            else
+            {
+                focusPos.y = transform.position.y;
+            }
         }
         else
         {
-            // Keep the camera's y position unchanged if the target moves downwards
-            focusPos.y = transform.position.y;
+            focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
         }
 
         focusPos += Vector2.right * _currentLookAheadX;
