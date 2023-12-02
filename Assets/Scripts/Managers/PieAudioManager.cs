@@ -13,6 +13,9 @@ public class PieAudioManager : MonoBehaviour
     public string StepEvent;
 
     public PlayerCharacterController characterController;
+    public PlayerAbilities playerAbilities;
+
+    public PlayerScript playerScript;
 
 
     public float footsteptime;
@@ -48,11 +51,39 @@ public class PieAudioManager : MonoBehaviour
 
     void Update ()
     {
-         if (Input.GetKeyDown("space") && characterController.CurrentCollisions.Below)
+         if (Input.GetKeyDown("space"))
         {
-            jumpinstance.start();
+            if (characterController.CurrentCollisions.Below)
+            {
+              jumpinstance.start();
+            }
            
+            if (playerAbilities.ability == AbilityEnum.DoubleJump
+                && playerScript._jumpCount <= 1)
+            {
+              jumpinstance.start();
+            }
+
+            if (playerAbilities.ability == AbilityEnum.WallJump
+                &&characterController.CurrentCollisions.WallLeft
+                )
+
+            {
+               jumpinstance.start();
+            }
+
+            if (playerAbilities.ability == AbilityEnum.WallJump
+                &&characterController.CurrentCollisions.WallRight
+                )
+
+            {
+               jumpinstance.start();
+            }
+
+
         }
+
+        
 
        
     }
@@ -65,5 +96,10 @@ public class PieAudioManager : MonoBehaviour
     private void Step()
     {
         stepinstance.start();
+    }
+
+    public void Jump()
+    {
+        jumpinstance.start();
     }
 }

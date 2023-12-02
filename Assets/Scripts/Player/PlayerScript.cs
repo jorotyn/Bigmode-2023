@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     #region Private Fields
     private float _gravity;
     private float _jumpVelocity;
-    private int _jumpCount;
+    public int _jumpCount;
     private const int MaxJumpCount = 2;
     private int _wallJumpCount;
     private const int MaxWallJumpCount = 1;

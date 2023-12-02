@@ -16,7 +16,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Ability")]
-    [SerializeField] AbilityEnum ability = AbilityEnum.None;
+    [SerializeField] public AbilityEnum ability = AbilityEnum.None;
     #endregion
 
     #region Properties
