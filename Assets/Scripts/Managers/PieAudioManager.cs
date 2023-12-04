@@ -9,12 +9,14 @@ public class PieAudioManager : MonoBehaviour
     private FMOD.Studio.EventInstance stepinstance;
     private FMOD.Studio.EventInstance walljumpinstance;
     private FMOD.Studio.EventInstance DoubleJumpinstane;
+    private FMOD.Studio.EventInstance Dieinstane;
 
     public string JumpEvent;
     public string HurtEvent;
     public string StepEvent;
     public string WallJumpEvent;
     public string DoubleJumpEvent;
+    public string DieEvent;
 
     public PlayerCharacterController characterController;
     public PlayerAbilities playerAbilities;
@@ -43,6 +45,7 @@ public class PieAudioManager : MonoBehaviour
         stepinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
         walljumpinstance = FMODUnity.RuntimeManager.CreateInstance(WallJumpEvent);
         DoubleJumpinstane = FMODUnity.RuntimeManager.CreateInstance(DoubleJumpEvent);
+        Dieinstane = FMODUnity.RuntimeManager.CreateInstance(DieEvent);
         
     }
 
@@ -147,5 +150,6 @@ public class PieAudioManager : MonoBehaviour
     public void DieWarp()
     {
         musicIntensity.DIE = true;
+        Dieinstane.start();
     }
 }
