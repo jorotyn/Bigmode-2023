@@ -16,6 +16,7 @@ public class IceCreamTruckMusic : MonoBehaviour
     void Start()
     {
         Truckinstance = FMODUnity.RuntimeManager.CreateInstance(TruckEvent);
+        
         Truckinstance.start();
         
     }
@@ -24,7 +25,7 @@ public class IceCreamTruckMusic : MonoBehaviour
     void Update()
     {
         
-        pan = Mathf.Clamp((gameObject.transform.position.x + 8)/ 16 , -1, 1);
+        pan = Mathf.Clamp((gameObject.transform.position.x + 10)/ 20 , -1, 1);
 
        
         // Debug.Log(pan);
@@ -34,5 +35,12 @@ public class IceCreamTruckMusic : MonoBehaviour
         {
             Truckinstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
+    }
+
+    
+    void OnDestroy()
+    {
+        Truckinstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        
     }
 }
