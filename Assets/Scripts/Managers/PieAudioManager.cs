@@ -33,16 +33,7 @@ public class PieAudioManager : MonoBehaviour
     private bool CanWallsoud = true;
 
    
-   
-
-    
-    
-
-    
-
-
-    public float footsteptime;
-    public float counter = 0f;
+ 
 
     
 
@@ -51,38 +42,17 @@ public class PieAudioManager : MonoBehaviour
         jumpinstance = FMODUnity.RuntimeManager.CreateInstance(JumpEvent);
         hurtinstance = FMODUnity.RuntimeManager.CreateInstance(HurtEvent);
         stepinstance = FMODUnity.RuntimeManager.CreateInstance(StepEvent);
-<<<<<<< Updated upstream
         walljumpinstance = FMODUnity.RuntimeManager.CreateInstance(WallJumpEvent);
         DoubleJumpinstane = FMODUnity.RuntimeManager.CreateInstance(DoubleJumpEvent);
         Dieinstane = FMODUnity.RuntimeManager.CreateInstance(DieEvent);
         
-=======
->>>>>>> Stashed changes
         
     }
 
    
     void FixedUpdate()
     {
-<<<<<<< Updated upstream
        
-=======
-         if (Input.GetKeyDown("space") && characterController.CurrentCollisions.Below)
-        {
-            jumpinstance.start();
-           
-        }
-
-        if (counter <= footsteptime)
-            {
-               counter+= 0.1f;
-            }
-        else 
-            {
-                 Step();
-                 counter = 0f;
-            }
->>>>>>> Stashed changes
         
 
         if (counter <= footsteptime )
@@ -171,7 +141,6 @@ public class PieAudioManager : MonoBehaviour
     {
         stepinstance.start();
     }
-<<<<<<< Updated upstream
 
     public void Jump()
     {
@@ -183,6 +152,4 @@ public class PieAudioManager : MonoBehaviour
         musicIntensity.DIE = true;
         Dieinstane.start();
     }
-=======
->>>>>>> Stashed changes
 }

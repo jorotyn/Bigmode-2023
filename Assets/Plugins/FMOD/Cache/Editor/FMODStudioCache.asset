@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7721540511496052619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Truck
+  m_EditorClassIdentifier: 
+  Path: event:/Truck
+  Guid:
+    Data1: -1050219392
+    Data2: 1273774333
+    Data3: -402918209
+    Data4: 454037619
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3182210789648190343}
+  - {fileID: 2804808235126300453}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15319
 --- !u!114 &-7342700673019136180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,10 +43,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/JUMP
   Guid:
-    Data1: -1750134013
-    Data2: 1093956157
-    Data3: 1053554098
-    Data4: -1334681636
+    Data1: 1781780275
+    Data2: 1254145252
+    Data3: 1945019312
+    Data4: -91212653
   Banks:
   - {fileID: 1400903939927026690}
   IsStream: 0
@@ -54,6 +83,84 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6406168162800988057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MultiTrack Music/MODE
+  m_EditorClassIdentifier: 
+  Name: MODE
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 445029379
+    data2: 1196661454
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  - Value C
+  Exists: 1
+--- !u!114 &-5837239032029752983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DIE
+  m_EditorClassIdentifier: 
+  Path: event:/DIE
+  Guid:
+    Data1: -1075917101
+    Data2: 1293245275
+    Data3: -558859384
+    Data4: 1616683258
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2375
+--- !u!114 &-3182210789648190343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Truck/Truc Intensity
+  m_EditorClassIdentifier: 
+  Name: Truc Intensity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2978677555
+    data2: 2710792213
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-833870135899629379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,18 +204,72 @@ MonoBehaviour:
   - {fileID: 6117681529097798785}
   - {fileID: 1400903939927026690}
   EditorEvents:
-  - {fileID: 3749023582592774946}
   - {fileID: 4441094607580336863}
   - {fileID: -7342700673019136180}
   - {fileID: 6935775035514142987}
   - {fileID: 2491928150038857828}
+  - {fileID: 6598810963612299232}
+  - {fileID: -7721540511496052619}
+  - {fileID: -5837239032029752983}
+  - {fileID: 393615133949000466}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1400903939927026690}
   StringsBanks:
   - {fileID: 6117681529097798785}
-  cacheTime: 638370463942666632
+  cacheTime: 638373097186328395
   cacheVersion: 131609
+--- !u!114 &393615133949000466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WallSlide
+  m_EditorClassIdentifier: 
+  Path: event:/WallSlide
+  Guid:
+    Data1: -1880789009
+    Data2: 1107035036
+    Data3: 82844094
+    Data4: -1560688282
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1702
+--- !u!114 &971010579037544883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MultiTrack Music/PITCH SLOW
+  m_EditorClassIdentifier: 
+  Name: PITCH SLOW
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2773851812
+    data2: 1386619024
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &974969316473941996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +309,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638370463942634592
+  lastModified: 638373097186292118
   FileSizes: []
   Exists: 1
 --- !u!114 &2491928150038857828
@@ -178,7 +339,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &3749023582592774946
+--- !u!114 &2804808235126300453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,24 +348,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Main Music Sample Test
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Truck/Pan
   m_EditorClassIdentifier: 
-  Path: event:/Main Music Sample Test
-  Guid:
-    Data1: 1544438597
-    Data2: 1145144074
-    Data3: 588088997
-    Data4: 1222294505
-  Banks:
-  - {fileID: 1400903939927026690}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Name: Pan
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3337435412
+    data2: 422319611
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &4441094607580336863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,9 +388,11 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: 7305377255871563968}
+  - {fileID: 971010579037544883}
+  - {fileID: -6406168162800988057}
   MinDistance: 1
   MaxDistance: 20
-  Length: 13617
+  Length: 34042
 --- !u!114 &6117681529097798785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,11 +408,38 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638370463942666632
+  lastModified: 638373097186328395
   FileSizes:
   - Name: 
-    Value: 1000
+    Value: 1444
   Exists: 1
+--- !u!114 &6598810963612299232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DoubleJump
+  m_EditorClassIdentifier: 
+  Path: event:/DoubleJump
+  Guid:
+    Data1: 885375607
+    Data2: 1109397639
+    Data3: -2108348495
+    Data4: 366486061
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6935775035514142987
 MonoBehaviour:
   m_ObjectHideFlags: 0
