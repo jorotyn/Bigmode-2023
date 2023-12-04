@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4200838323139132620}
   - component: {fileID: -8094854582964529986}
   - component: {fileID: -7231734966084995968}
+  - component: {fileID: 8829373353350855107}
   m_Layer: 0
   m_Name: IceCreamTruck
   m_TagString: Untagged
@@ -167,3 +168,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8829373353350855107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070326862931067682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716a2cd83b4564fc985ee071c6fc3948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TruckEvent: event:/Truck
