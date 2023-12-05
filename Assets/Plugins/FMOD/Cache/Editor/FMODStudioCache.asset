@@ -56,6 +56,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7327680287106250324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ScoopGrab
+  m_EditorClassIdentifier: 
+  Path: event:/ScoopGrab
+  Guid:
+    Data1: 1206478678
+    Data2: 1222962644
+    Data3: -2072555085
+    Data4: -532190512
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6502202335452281923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,12 +239,13 @@ MonoBehaviour:
   - {fileID: -7721540511496052619}
   - {fileID: -5837239032029752983}
   - {fileID: 393615133949000466}
+  - {fileID: -7327680287106250324}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1400903939927026690}
   StringsBanks:
   - {fileID: 6117681529097798785}
-  cacheTime: 638373097186328395
+  cacheTime: 638373908397892439
   cacheVersion: 131609
 --- !u!114 &393615133949000466
 MonoBehaviour:
@@ -245,7 +273,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1702
+  Length: 3404
 --- !u!114 &971010579037544883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +337,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638373097186292118
+  lastModified: 638373908397830773
   FileSizes: []
   Exists: 1
 --- !u!114 &2491928150038857828
@@ -408,10 +436,10 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638373097186328395
+  lastModified: 638373908397892439
   FileSizes:
   - Name: 
-    Value: 1444
+    Value: 1484
   Exists: 1
 --- !u!114 &6598810963612299232
 MonoBehaviour:

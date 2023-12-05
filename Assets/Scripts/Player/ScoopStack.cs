@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 using static PieConstants;
 
 public class ScoopStack : MonoBehaviour
@@ -12,6 +13,9 @@ public class ScoopStack : MonoBehaviour
 
     private bool _addingScoop;
 
+    [SerializeField]
+    private FMODUnity.EventReference ScoopSfx;
+
     private void Start()
     {
         playerAbilities = GetComponent<PlayerAbilities>();
@@ -23,6 +27,7 @@ public class ScoopStack : MonoBehaviour
         {
             GetAbility(collision.gameObject.GetComponent<Ability>());
             AddScoopToQueue(collision.gameObject.GetComponent<Scoop>());
+            PlayScoopSound(ScoopSfx);
         }
     }
 
@@ -45,5 +50,16 @@ public class ScoopStack : MonoBehaviour
         _scoops.Add(scoop);
         scoop.AttachToPlayer(transform, (Scoop.Position)_scoops.Count);
         _addingScoop = false;
+    }
+
+    private void PlayScoopSound(FMODUnity.EventReference sound)
+    {
+        
+            FMOD.Studio.EventInstance Scoopinstance = RuntimeManager.CreateInstance(sound);
+            Scoopinstance.start();
+            Scoopinstance.release();
+
+        
+
     }
 }
