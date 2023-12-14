@@ -704,6 +704,7 @@ GameObject:
   - component: {fileID: 219812487}
   - component: {fileID: 219812491}
   - component: {fileID: 219812492}
+  - component: {fileID: 219812493}
   m_Layer: 0
   m_Name: red_candle
   m_TagString: Untagged
@@ -824,7 +825,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1509395294, guid: c418c176dd32d4a968729692f95d181a, type: 3}
+  m_Sprite: {fileID: 1387243957, guid: c418c176dd32d4a968729692f95d181a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -844,7 +845,7 @@ Transform:
   m_GameObject: {fileID: 219812486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.42, y: -0.18, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -863,6 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 6
+  ProjectilePrefab: {fileID: 705415387994419675, guid: 0f51560e220334f29b945f3037730fbc,
+    type: 3}
+  ProjectileVelocity: 1
 --- !u!114 &219812492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +887,27 @@ MonoBehaviour:
   MaxClimbAngle: 70
   MaxDescendAngle: 75
   IsMovingOnGround: 0
+--- !u!95 &219812493
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219812486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 771917e7d322c4d07b87b94e9aa50f9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &233015920
 GameObject:
   m_ObjectHideFlags: 0
