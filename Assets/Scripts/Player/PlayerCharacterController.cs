@@ -40,6 +40,7 @@ public class PlayerCharacterController : RaycastMovementController
     private Vector2 VerticalCollisions(Vector2 velocity)
     {
         var directionY = Mathf.Sign(velocity.y);
+        if (directionY == Vector2.up.y) return velocity;
         float rayLength = Mathf.Abs(velocity.y) + SkinWidth;
         for (int i = 0; i < VerticalRayCount; i++)
         {
@@ -57,7 +58,7 @@ public class PlayerCharacterController : RaycastMovementController
                     velocity.x = velocity.y / Mathf.Tan(CurrentCollisions.SlopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
                 }
 
-                CurrentCollisions.Above = directionY == Vector2.up.y;
+                //CurrentCollisions.Above = directionY == Vector2.up.y;
                 CurrentCollisions.Below = directionY == Vector2.down.y;
             }
         }
