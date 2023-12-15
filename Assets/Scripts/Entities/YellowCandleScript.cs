@@ -2,16 +2,17 @@
 
 public class YellowCandleScript : BaseCandleScript
 {
-
     private FMOD.Studio.EventInstance YellowCandleInstance;
     public string YellowEvent;
 
     void Start()
     {
         YellowCandleInstance = FMODUnity.RuntimeManager.CreateInstance(YellowEvent);
-
+        if(transform.position.x > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true; 
+	    }
     }
-
 
     public override void Fire()
     {
@@ -27,7 +28,7 @@ public class YellowCandleScript : BaseCandleScript
 
         var startPoint = (Vector2)transform.position;
         float angleStep = 30f / numberOfProjectiles;
-        float angle = 0f;
+        float angle = transform.position.x < 0 ? 0 : 225f;
 
         for (int i = 0; i <= numberOfProjectiles - 1; i++)
         {
