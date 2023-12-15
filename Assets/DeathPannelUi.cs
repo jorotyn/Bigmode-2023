@@ -20,9 +20,22 @@ float valueToLerp3;
 public TextMeshProUGUI Val1;
 public TextMeshProUGUI Val2;
 public TextMeshProUGUI Val3;
+
+private FMOD.Studio.EventInstance ScoreInstance;
+public string ScoreEvent = "event:/ScoreBoard";
+
+
+
+void Start()
+{
+   ScoreInstance = FMODUnity.RuntimeManager.CreateInstance(ScoreEvent);
+
+
+}
   void OnEnable()
     {
         StartCoroutine(Lerp());
+        ScoreInstance.start();
         
         
     }
