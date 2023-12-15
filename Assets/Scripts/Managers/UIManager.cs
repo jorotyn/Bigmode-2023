@@ -1,9 +1,22 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     #region Serialized Fields
+    [Header("Health")]
+     
+    [SerializeField] private Image Hearth1;
+    [SerializeField] private Image Hearth2;
+    [SerializeField] private Image Hearth3;
+
+    [SerializeField] private Sprite[] _spritesHearth;
+
+
+    
+
+
     [Header("References")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAbilities playerAbilities;
@@ -77,5 +90,57 @@ public class UIManager : MonoBehaviour
         Timer += Time.deltaTime;
 
         
+    }
+
+    public void UpdateHearth (int number)
+    {
+        if (number == 6)
+        {
+            Hearth1.sprite = _spritesHearth[2];
+            Hearth2.sprite = _spritesHearth[2];
+            Hearth3.sprite = _spritesHearth[2];
+        }
+
+        if (number == 5)
+        {
+            Hearth1.sprite = _spritesHearth[1];
+            Hearth2.sprite = _spritesHearth[2];
+            Hearth3.sprite = _spritesHearth[2];
+        }
+
+        if (number == 4)
+        {
+            Hearth1.sprite = _spritesHearth[0];
+            Hearth2.sprite = _spritesHearth[2];
+            Hearth3.sprite = _spritesHearth[2];
+        }
+
+        if (number == 3)
+        {
+            Hearth1.sprite = _spritesHearth[0];
+            Hearth2.sprite = _spritesHearth[1];
+            Hearth3.sprite = _spritesHearth[2];
+        }
+
+        if (number == 2)
+        {
+            Hearth1.sprite = _spritesHearth[0];
+            Hearth2.sprite = _spritesHearth[0];
+            Hearth3.sprite = _spritesHearth[2];
+        }
+
+        if (number == 1)
+        {
+            Hearth1.sprite = _spritesHearth[0];
+            Hearth2.sprite = _spritesHearth[0];
+            Hearth3.sprite = _spritesHearth[1];
+        }
+
+        if (number == 0)
+        {
+            Hearth1.sprite = _spritesHearth[0];
+            Hearth2.sprite = _spritesHearth[0];
+            Hearth3.sprite = _spritesHearth[0];
+        }
     }
 }

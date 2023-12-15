@@ -4,9 +4,11 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int currentLife = 6;
     #region Serialized Fields
     [Header("References")]
     [SerializeField] private PieAudioManager audioPieManager;
+    [SerializeField] private UIManager _uimanager;
     #endregion
 
     #region Private Fields
@@ -44,6 +46,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!_canTakeDamage) return;
         StartCoroutine(DisableDamage());
+        currentLife -= 1;
+        _uimanager.UpdateHearth(currentLife);
         audioPieManager.Hurt();
     }
     #endregion
