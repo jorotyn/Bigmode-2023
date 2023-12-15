@@ -33,9 +33,9 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PlayerAbilities _playerAbilities;
     private PlayerCharacterController _characterController;
+    private Animator _animator;
     #endregion
 
-    private Animator _animator;
 
     #region Unity Lifecycle
     private void Start()
@@ -57,13 +57,15 @@ public class PlayerScript : MonoBehaviour
 
         var input = InputManager.CurrentDirectionalInput();
 
-        HandleWallJump(input);
-        HandleRegularJump(input);
+        HandleWallJump();
+        HandleRegularJump();
         HandleMovement(input);
         HandleSpriteFlip();
         HandleWallSlide();
 
-        
+        _animator.SetBool("inair", !_characterController.CurrentCollisions.Below);
+        _animator.SetBool("movingx", _velocity.x != 0);
+        _animator.SetBool("movingy", _velocity.y != 0);
     }
     #endregion
 
@@ -82,7 +84,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void HandleWallJump(Vector2 input)
+    private void HandleWallJump()
     {
         if ((_characterController.CurrentCollisions.WallLeft || _characterController.CurrentCollisions.WallRight) &&
             !_characterController.CurrentCollisions.Below &&
@@ -99,16 +101,13 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void HandleRegularJump(Vector2 input)
+    private void HandleRegularJump()
     {
         if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
             (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || _characterController.CurrentCollisions.Below))
         {
             _velocity.y = _jumpVelocity;
             _jumpCount++;
-            
-            _animator.SetTrigger("Jump");
-
         }
     }
 
@@ -119,10 +118,6 @@ public class PlayerScript : MonoBehaviour
         _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
         _velocity.y += _gravity * Time.deltaTime;
         _characterController.Move(_velocity * Time.deltaTime);
-
-        
-
-
     }
 
     private void HandleSpriteFlip()
