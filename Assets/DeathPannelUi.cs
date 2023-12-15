@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class DeathPannelUi : MonoBehaviour
 {
@@ -54,4 +56,11 @@ public TextMeshProUGUI Val3;
          Val3.text = ((int)TimeAlamode).ToString();
          
     }
+
+    public void LoadMenu()
+    {
+       SceneManager.LoadScene("MenuScene");
+    }
+
+    
 }
