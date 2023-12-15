@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1806,7 +1806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &879033632
 Transform:
   m_ObjectHideFlags: 0
@@ -1905,7 +1905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &881169111
 Transform:
   m_ObjectHideFlags: 0
@@ -2461,7 +2461,7 @@ Transform:
   m_GameObject: {fileID: 1049500698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3361,7 +3361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1461630816
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,7 +3460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1473657667
 Transform:
   m_ObjectHideFlags: 0
@@ -3943,12 +3943,12 @@ PrefabInstance:
     - target: {fileID: 5278369771167158847, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.38
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5278369771167158847, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.07
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5278369771167158847, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
@@ -3994,16 +3994,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: main_platforms
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362459447225294051, guid: 8c6dc380f69e343a98a5d8ead451d822,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5993405795596004947, guid: 8c6dc380f69e343a98a5d8ead451d822,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
