@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -9,8 +10,6 @@ public class CameraFollow : MonoBehaviour
     public float VerticalSmoothTime = 0.2f;
     public float VerticalOffset = 1;
 
-    [SerializeField] private bool allowFallingOffScreen = true;
-
     private FocusArea _focusArea;
 
     private float _currentLookAheadX;
@@ -21,9 +20,18 @@ public class CameraFollow : MonoBehaviour
 
     private bool _lookAheadStopped;
 
+    private bool _climbUp = false;
+
     private void Start()
     {
         _focusArea = new FocusArea(Target.Collider.bounds, FocusAreaSize);
+        StartCoroutine(DelayAndClimb());
+    }
+
+    private IEnumerator DelayAndClimb()
+    {
+        yield return new WaitForSeconds(3);
+        _climbUp = true;
     }
 
     private void LateUpdate()
@@ -54,24 +62,20 @@ public class CameraFollow : MonoBehaviour
 
         _currentLookAheadX = Mathf.SmoothDamp(_currentLookAheadX, _targetLookAheadX, ref _smooth_look_velocity_x, LookSmoothTimeX);
 
-        if (allowFallingOffScreen)
-        {
-            if (focusPos.y > transform.position.y)
-            {
-                focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
-            }
-            else
-            {
-                focusPos.y = transform.position.y;
-            }
-        }
-        else
+        if (focusPos.y > transform.position.y)
         {
             focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
         }
+        else
+        {
+            focusPos.y = transform.position.y;
+        }
 
         focusPos += Vector2.right * _currentLookAheadX;
-        transform.position = (Vector3)focusPos + Vector3.forward * -10;
+        if (_climbUp)
+        {
+            transform.position += Vector3.up * 0.0005f;
+        }
     }
 
     private void OnDrawGizmos()
