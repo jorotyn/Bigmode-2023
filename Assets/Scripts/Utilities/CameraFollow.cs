@@ -12,6 +12,8 @@ public class CameraFollow : MonoBehaviour
     private Bounds _lastLevelBounds;
     private const float chunkSize = 19.3f;
 
+    public GameObject TruckPrefab;
+
     public PlayerCharacterController Target;
     public Vector2 FocusAreaSize = new Vector2(3, 5);
     public float LookAheadX = 2;
@@ -43,12 +45,32 @@ public class CameraFollow : MonoBehaviour
         _focusArea = new FocusArea(Target.Collider.bounds, FocusAreaSize);
         _lastLevelBounds = LastLevelChunk.GetComponent<BoxCollider2D>().bounds;
         StartCoroutine(DelayAndClimb());
+        StartCoroutine(SpawnTruck());
     }
 
     private IEnumerator DelayAndClimb()
     {
         yield return new WaitForSeconds(3);
         _climbUp = true;
+    }
+
+    private IEnumerator SpawnTruck()
+    {
+        while (true)
+        {
+            var startPos = _camera.ScreenToWorldPoint(
+                                     new Vector3(Screen.width + 20,
+                                                 Screen.height - 20,
+                                                 0)
+                                   );
+            var helper = Instantiate(TruckPrefab,
+                                     startPos,
+                                     Quaternion.identity);
+
+            var helperScript = helper.GetComponent<HelperScript>();
+            StartCoroutine(helperScript.Enter());
+            yield return new WaitForSeconds(15);
+        }
     }
 
     private void LateUpdate()

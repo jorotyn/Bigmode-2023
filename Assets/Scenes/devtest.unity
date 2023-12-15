@@ -1335,7 +1335,8 @@ MonoBehaviour:
   LevelPrefab: {fileID: 5362459447225294051, guid: 8c6dc380f69e343a98a5d8ead451d822,
     type: 3}
   LastLevelChunk: {fileID: 1262128165}
-  TruckPrefab: {fileID: 0}
+  TruckPrefab: {fileID: 9070326862931067682, guid: a55ff87fcba5e4239991a071894fdb6d,
+    type: 3}
   Target: {fileID: 1049500704}
   FocusAreaSize: {x: 3, y: 5}
   LookAheadX: 0
@@ -3628,10 +3629,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1353008320675470758, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 19.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1900089774722978765, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610322131599964899, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 19.2
       objectReference: {fileID: 0}
     - target: {fileID: 3610761946532199728, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
@@ -3718,6 +3729,11 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -3.32
       objectReference: {fileID: 0}
+    - target: {fileID: 5831490689933207264, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5993405795596004947, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
       propertyPath: m_Size.y
@@ -3742,6 +3758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -3.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178984776207944268, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 19.19
       objectReference: {fileID: 0}
     - target: {fileID: 8508420154046916472, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
