@@ -2,9 +2,19 @@
 
 public class RedCandleScript : BaseCandleScript
 {
+
+     private FMOD.Studio.EventInstance RedCandleInstance;
+    public string RedEvent;
+
+     void Start()
+    {
+        RedCandleInstance = FMODUnity.RuntimeManager.CreateInstance(RedEvent);
+
+    }
     public override void Fire()
     {
         DoCircleAttack();
+        RedCandleInstance.start();
     }
 
     private void DoCircleAttack()

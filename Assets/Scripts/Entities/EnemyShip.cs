@@ -10,6 +10,24 @@ public class EnemyShip : MonoBehaviour
     private ShipAttackType _attackType;
     private int _intensity = 1;
 
+    private FMOD.Studio.EventInstance IdleInstance;
+    public string IdleEvent;
+
+    private FMOD.Studio.EventInstance FireInstance;
+    public string FireEvent;
+
+
+    void Start ()
+    {
+        IdleInstance = FMODUnity.RuntimeManager.CreateInstance(IdleEvent);
+
+        FireInstance = FMODUnity.RuntimeManager.CreateInstance(FireEvent);
+
+        IdleInstance.start();
+
+
+    }
+
     public void SetValues(ShipAttackType attackType,
                           int intensity)
     {
@@ -29,6 +47,8 @@ public class EnemyShip : MonoBehaviour
 
     private IEnumerator BeginFiring()
     {
+
+        FireInstance.start();
         _firing = true;
         while (_firing)
         {
@@ -103,4 +123,14 @@ public class EnemyShip : MonoBehaviour
         }
     }
     #endregion
+
+
+    
+    void OnDestroy()
+    {
+        FireInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        
+        IdleInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        
+    }
 }

@@ -2,9 +2,21 @@
 
 public class YellowCandleScript : BaseCandleScript
 {
+
+    private FMOD.Studio.EventInstance YellowCandleInstance;
+    public string YellowEvent;
+
+    void Start()
+    {
+        YellowCandleInstance = FMODUnity.RuntimeManager.CreateInstance(YellowEvent);
+
+    }
+
+
     public override void Fire()
     {
         DoArcAttack();
+        YellowCandleInstance.start();
     }
 
     private void DoArcAttack()

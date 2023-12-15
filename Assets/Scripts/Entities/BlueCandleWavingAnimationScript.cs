@@ -11,7 +11,7 @@ public class BlueCandleWavingAnimationScript : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log(stateInfo.normalizedTime);
+        //Debug.Log(stateInfo.normalizedTime);
         if(stateInfo.normalizedTime >= 0.5f)
         { 
             animator.gameObject.GetComponent<BaseCandleScript>().Fire();

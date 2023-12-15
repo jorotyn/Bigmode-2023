@@ -83,6 +83,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6687367555034134936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/RedCandle
+  m_EditorClassIdentifier: 
+  Path: event:/RedCandle
+  Guid:
+    Data1: -348982257
+    Data2: 1161934292
+    Data3: 1163119748
+    Data4: 1238720450
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2750
 --- !u!114 &-6502202335452281923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +182,33 @@ MonoBehaviour:
     Data2: 1293245275
     Data3: -558859384
     Data4: 1616683258
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2375
+--- !u!114 &-5398863002668727619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/YellowCandle
+  m_EditorClassIdentifier: 
+  Path: event:/YellowCandle
+  Guid:
+    Data1: -941206389
+    Data2: 1332688688
+    Data3: 989357958
+    Data4: -339703039
   Banks:
   - {fileID: 1400903939927026690}
   IsStream: 0
@@ -240,12 +294,16 @@ MonoBehaviour:
   - {fileID: -5837239032029752983}
   - {fileID: 393615133949000466}
   - {fileID: -7327680287106250324}
+  - {fileID: -6687367555034134936}
+  - {fileID: -5398863002668727619}
+  - {fileID: 7388190092255865061}
+  - {fileID: 8396017255684937679}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1400903939927026690}
   StringsBanks:
   - {fileID: 6117681529097798785}
-  cacheTime: 638380867921477108
+  cacheTime: 638382372956974578
   cacheVersion: 131609
 --- !u!114 &393615133949000466
 MonoBehaviour:
@@ -337,7 +395,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638380867921462487
+  lastModified: 638382372956882046
   FileSizes: []
   Exists: 1
 --- !u!114 &2491928150038857828
@@ -436,10 +494,10 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638380867921477108
+  lastModified: 638382372956974578
   FileSizes:
   - Name: 
-    Value: 1484
+    Value: 1658
   Exists: 1
 --- !u!114 &6598810963612299232
 MonoBehaviour:
@@ -519,6 +577,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &7388190092255865061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemyShipFire
+  m_EditorClassIdentifier: 
+  Path: event:/EnemyShipFire
+  Guid:
+    Data1: -496644796
+    Data2: 1334715392
+    Data3: 1813541517
+    Data4: -1356915270
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5425
 --- !u!114 &8201546944038995616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,3 +631,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8396017255684937679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EnemyShipIdle
+  m_EditorClassIdentifier: 
+  Path: event:/EnemyShipIdle
+  Guid:
+    Data1: 26419173
+    Data2: 1173913901
+    Data3: 952929953
+    Data4: -263462393
+  Banks:
+  - {fileID: 1400903939927026690}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3404

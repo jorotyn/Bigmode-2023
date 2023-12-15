@@ -908,6 +908,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 705415387994419675, guid: 0f51560e220334f29b945f3037730fbc,
     type: 3}
   ProjectileVelocity: 1
+  RedEvent: event:/RedCandle
 --- !u!1 &233015920
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,6 +5751,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 705415387994419675, guid: 0f51560e220334f29b945f3037730fbc,
     type: 3}
   ProjectileVelocity: 1
+  YellowEvent: event:/YellowCandle
 --- !u!114 &1724861756
 MonoBehaviour:
   m_ObjectHideFlags: 0
