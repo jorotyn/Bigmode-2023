@@ -6,16 +6,12 @@ public class UIManager : MonoBehaviour
 {
     #region Serialized Fields
     [Header("Health")]
-     
+
     [SerializeField] private Image Hearth1;
     [SerializeField] private Image Hearth2;
     [SerializeField] private Image Hearth3;
 
     [SerializeField] private Sprite[] _spritesHearth;
-
-
-    
-
 
     [Header("References")]
     [SerializeField] private PlayerHealth playerHealth;
@@ -60,12 +56,12 @@ public class UIManager : MonoBehaviour
     #region Event Driven Methods
     private void OnPlayerDeath()
     {
-        if (deathPanel != null) 
-        
+        if (deathPanel != null)
+
         {
-        _deathPannelUi.TimeAlive = Timer;
-        deathPanel.gameObject.SetActive(true);
-        AbbilityPannel.gameObject.SetActive(false);
+            _deathPannelUi.TimeAlive = Timer;
+            deathPanel.gameObject.SetActive(true);
+            AbbilityPannel.gameObject.SetActive(false);
 
         }
 
@@ -84,15 +80,13 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    
+
     void FixedUpdate()
     {
         Timer += Time.deltaTime;
-
-        
     }
 
-    public void UpdateHearth (int number)
+    public void UpdateHearth(int number)
     {
         if (number == 6)
         {
