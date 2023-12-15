@@ -31,7 +31,7 @@ public class CameraFollow : MonoBehaviour
     private bool _lookAheadStopped;
 
     private bool _climbUp = false;
-    private float _climbRate => Mathf.Min(Mathf.Max(.001f, _camera.transform.position.y * 0.0002f), 0.01f);
+    private float _climbRate => Mathf.Min(Mathf.Max(.001f, _camera.transform.position.y * 0.0001f), 0.001f);
 
     private Camera _camera;
 
