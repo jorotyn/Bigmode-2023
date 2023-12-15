@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class Scoop : MonoBehaviour
 {
-    public enum Position { bottom = 1, middle, top }
-
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
-    private Position _position;
 
     private SpriteRenderer _parentRenderer;
 
@@ -18,10 +15,9 @@ public class Scoop : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void AttachToPlayer(Transform playerTransform, Position position)
+    public void AttachToPlayer(Transform playerTransform)
     {
         transform.parent = playerTransform;
-        _position = position;
         _rigidbody.isKinematic = true;
     }
 
@@ -31,7 +27,7 @@ public class Scoop : MonoBehaviour
         {
             var newPos = transform.parent.position;
             transform.position = new Vector2(newPos.x,
-                                             newPos.y - (0.15f * (int)_position));
+                                             newPos.y - 0.15f);
             _animator.SetBool("IsFalling", false);
 
             if(_parentRenderer != null)

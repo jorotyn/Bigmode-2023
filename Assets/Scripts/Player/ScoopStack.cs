@@ -1,20 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using static PieConstants;
 
 public class ScoopStack : MonoBehaviour
 {
-    public int MaxScoops = 1;
-
     private PlayerAbilities playerAbilities;
 
-    private readonly List<Scoop> _scoops = new();
-
-    private bool _addingScoop;
+    private Scoop _currentScopp;
 
     [SerializeField]
-    private FMODUnity.EventReference ScoopSfx;
+    private EventReference ScoopSfx;
 
     private void Start()
     {
@@ -23,10 +18,10 @@ public class ScoopStack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Tags.Scoop) && !_addingScoop)
+        if (collision.CompareTag(Tags.Scoop))
         {
             GetAbility(collision.gameObject.GetComponent<Ability>());
-            AddScoopToQueue(collision.gameObject.GetComponent<Scoop>());
+            AddScoop(collision.gameObject.GetComponent<Scoop>());
             PlayScoopSound(ScoopSfx);
         }
     }
@@ -37,29 +32,20 @@ public class ScoopStack : MonoBehaviour
         playerAbilities.CurrentAbility = ability.abilityType;
     }
 
-    private void AddScoopToQueue(Scoop scoop)
+    private void AddScoop(Scoop scoop)
     {
-        _addingScoop = true;
-        if (_scoops.Count == MaxScoops)
+        if (_currentScopp != null)
         {
-            var s = _scoops[_scoops.Count - 1];
-            _scoops.Remove(s);
-            Destroy(s);
+            Destroy(_currentScopp.gameObject);
         }
-
-        _scoops.Add(scoop);
-        scoop.AttachToPlayer(transform, (Scoop.Position)_scoops.Count);
-        _addingScoop = false;
+        scoop.AttachToPlayer(transform);
+        _currentScopp = scoop;
     }
 
-    private void PlayScoopSound(FMODUnity.EventReference sound)
+    private void PlayScoopSound(EventReference sound)
     {
-        
-            FMOD.Studio.EventInstance Scoopinstance = RuntimeManager.CreateInstance(sound);
-            Scoopinstance.start();
-            Scoopinstance.release();
-
-        
-
+        FMOD.Studio.EventInstance Scoopinstance = RuntimeManager.CreateInstance(sound);
+        Scoopinstance.start();
+        Scoopinstance.release();
     }
 }
