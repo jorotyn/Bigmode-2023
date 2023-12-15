@@ -27,8 +27,11 @@ public abstract class BaseCandleScript : MonoBehaviour
 
     private IEnumerator WindUp()
     {
-        yield return new WaitForSeconds(Random.Range(3, 6));
-        _animator.SetBool("WindingUp", true);
+        while (true)
+        {
+            _animator.SetBool("WindingUp", true);
+            yield return new WaitForSeconds(Random.Range(3, 6));
+        }
     }
 
     public void Move(Vector2 input)
