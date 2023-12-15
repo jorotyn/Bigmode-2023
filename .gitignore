@@ -74,3 +74,4 @@ crashlytics-build.properties
 .DS_Store
 fmod_editor.log
 FMODStudioCache.asset
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
