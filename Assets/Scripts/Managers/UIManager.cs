@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Death")]
     [SerializeField] private GameObject deathPanel;
+    [SerializeField] private GameObject AbbilityPannel;
 
     [Header("Mode")]
     [SerializeField] private TextMeshProUGUI currentModeText;
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
     private void OnPlayerDeath()
     {
         if (deathPanel != null) deathPanel.gameObject.SetActive(true);
+        AbbilityPannel.gameObject.SetActive(false);
+
     }
 
     private void OnAbilityChange(AbilityEnum newAbility)
