@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     public GameObject LevelPrefab;
     public GameObject LastLevelChunk;
     private Bounds _lastLevelBounds;
-    private const float chunkSize = 20.7f;
+    private const float chunkSize = 19.3f;
 
     public PlayerCharacterController Target;
     public Vector2 FocusAreaSize = new Vector2(3, 5);
