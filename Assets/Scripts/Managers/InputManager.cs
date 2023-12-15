@@ -7,4 +7,5 @@ public static class InputManager
                     Input.GetAxis("Vertical"));
 
     public static bool JumpPressed() => Input.GetButtonDown("Player1_Jump");
+    public static bool JumpReleased() => Input.GetButtonUp("Player1_Jump");
 }

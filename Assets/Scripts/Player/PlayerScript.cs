@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float MoveSpeed = 6f;
     [SerializeField] private float JumpHeight = 3.5f;
-    [SerializeField] private float JumpTimeToApex = .4f;
+    [SerializeField] private float JumpTimeToApex = 2f;
     [SerializeField] private float AccelerationTimeAir = .2f;
     [SerializeField] private float AccelerationTimeGround = .1f;
 
@@ -34,8 +34,8 @@ public class PlayerScript : MonoBehaviour
     private PlayerAbilities _playerAbilities;
     private PlayerCharacterController _characterController;
     private Animator _animator;
+    private float counterjumpforce;
     #endregion
-
 
     #region Unity Lifecycle
     private void Start()
@@ -49,6 +49,7 @@ public class PlayerScript : MonoBehaviour
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
         _jumpCount = 0;
         _playerAbilities.CurrentAbility = InitialAbility;
+        counterjumpforce = -.00000000f;
     }
 
     private void Update()
@@ -109,6 +110,10 @@ public class PlayerScript : MonoBehaviour
             _velocity.y = _jumpVelocity;
             _jumpCount++;
         }
+        else if(InputManager.JumpReleased() && !_characterController.CurrentCollisions.Below)
+        {
+            _velocity.y = counterjumpforce;
+	    }    
     }
 
     private void HandleMovement(Vector2 input)
