@@ -4559,7 +4559,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2395908178771190086, guid: da980f6daac0d4e088a387673bb64d8b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1550743969}
   m_SourcePrefab: {fileID: 100100000, guid: da980f6daac0d4e088a387673bb64d8b, type: 3}
 --- !u!1 &1243545119
 GameObject:
@@ -5553,6 +5557,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 26.34, y: 0.05}
   m_EdgeRadius: 0
+--- !u!1 &1550743965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2395908178771190086, guid: da980f6daac0d4e088a387673bb64d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220821311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1550743969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550743965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4dd9d1c427f41089f5be6b4f0c5b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 1463485784460708433, guid: add78a356cb9f4122a88f05e72ee2792,
+    type: 3}
+  AttackPattern: 0
+  SpawnDelay: 0
+  SpawnEnterTime: 1
 --- !u!1 &1724861748
 GameObject:
   m_ObjectHideFlags: 0

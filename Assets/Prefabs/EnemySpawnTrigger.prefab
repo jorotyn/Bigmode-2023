@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8472536067742285547}
   - component: {fileID: 6258296558178591235}
-  - component: {fileID: -5346600363497383680}
   m_Layer: 0
   m_Name: EnemySpawnTrigger
   m_TagString: Untagged
@@ -78,21 +77,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.08, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &-5346600363497383680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395908178771190086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4dd9d1c427f41089f5be6b4f0c5b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
-  EnemyPrefab: {fileID: 1463485784460708433, guid: add78a356cb9f4122a88f05e72ee2792,
-    type: 3}
-  AttackPattern: 0
-  SpawnDelay: 0
-  SpawnEnterTime: 1
