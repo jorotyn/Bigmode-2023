@@ -45,7 +45,7 @@ public class HelperScript : MonoBehaviour
     { 
         while (!_dead)
         {
-            var prefab = ScoopPrefabs[Random.Range(0, ScoopPrefabs.Length - 1)];
+            var prefab = ScoopPrefabs[Random.Range(0, ScoopPrefabs.Length)];
             var tmpObj = Instantiate(prefab, transform.position, Quaternion.identity);
             tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, Vector2.down.y);
             yield return new WaitForSeconds(FireFrequency);

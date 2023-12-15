@@ -3,12 +3,15 @@
 public class RedCandleScript : BaseCandleScript
 {
 
-     private FMOD.Studio.EventInstance RedCandleInstance;
-    public string RedEvent;
+
+    private FMOD.Studio.EventInstance RedCandleInstance;
+    public string RedCandleEvent;   
+   
 
      void Start()
     {
-        RedCandleInstance = FMODUnity.RuntimeManager.CreateInstance(RedEvent);
+     
+        RedCandleInstance = FMODUnity.RuntimeManager.CreateInstance(RedCandleEvent);
 
     }
     public override void Fire()
