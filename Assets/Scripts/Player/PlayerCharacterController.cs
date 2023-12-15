@@ -11,12 +11,10 @@ public class PlayerCharacterController : RaycastMovementController
 
     private Animator _animator;
 
-     void Start() 
+    public override void Start() 
     {
         _animator = GetComponent<Animator>();
-        
     }
-
 
     public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {
