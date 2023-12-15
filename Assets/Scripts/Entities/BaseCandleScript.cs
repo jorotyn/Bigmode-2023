@@ -17,32 +17,21 @@ public abstract class BaseCandleScript : MonoBehaviour
     [SerializeReference]
     public float ProjectileVelocity = 1f;
 
-    
-
     private void Awake()
     {
         _characterController = GetComponent<PlayerCharacterController>();
         _animator = GetComponent<Animator>();
 
         StartCoroutine(WindUp());
-
     }
 
-    IEnumerator WindUp()
+    private IEnumerator WindUp()
     {
         yield return new WaitForSeconds(Random.Range(3, 6));
         _animator.SetBool("WindingUp", true);
-        
-      
-
     }
 
-    void Update()
-    {
-        HandleMovement((Vector2)_velocity);
-    }
-
-    private void HandleMovement(Vector2 input)
+    public void Move(Vector2 input)
     {
         float targetX = input.x * MoveSpeed;
         float accelerationTime = .1f;

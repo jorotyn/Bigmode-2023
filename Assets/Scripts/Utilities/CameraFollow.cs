@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public GameObject RedCandlePrefab;
+    public GameObject YellowCandlePrefab;
+    public GameObject BlueCandlePrefab;
+    public GameObject LeftSpawner;
+    public GameObject RightSpawner;
+
     public PlayerCharacterController Target;
     public Vector2 FocusAreaSize = new Vector2(3, 5);
     public float LookAheadX = 2;
@@ -26,12 +32,32 @@ public class CameraFollow : MonoBehaviour
     {
         _focusArea = new FocusArea(Target.Collider.bounds, FocusAreaSize);
         StartCoroutine(DelayAndClimb());
+        StartCoroutine(SpawnEnemies());
     }
 
     private IEnumerator DelayAndClimb()
     {
         yield return new WaitForSeconds(3);
         _climbUp = true;
+    }
+
+    private IEnumerator SpawnEnemies()
+    {
+        while (true)
+        {
+            var pos = Random.Range(0, 2) > 0 ? LeftSpawner.transform.position : RightSpawner.transform.position;
+            var tmpObj = Random.Range(0, 3) switch
+            {
+                0 => Instantiate(RedCandlePrefab, pos, Quaternion.identity),
+                1 => Instantiate(YellowCandlePrefab, pos, Quaternion.identity),
+                2 => Instantiate(BlueCandlePrefab, pos, Quaternion.identity),
+                _ => throw new System.NotImplementedException()
+            };
+            var p = tmpObj.transform.position;
+            p.z = 10;
+            tmpObj.transform.position = p;
+            yield return new WaitForSeconds(3);
+        }
     }
 
     private void LateUpdate()
