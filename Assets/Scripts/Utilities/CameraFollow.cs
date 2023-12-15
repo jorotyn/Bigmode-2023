@@ -100,7 +100,7 @@ public class CameraFollow : MonoBehaviour
 
         if (_climbUp)
         {
-            transform.position += Vector3.up * 0.0005f;
+            transform.position += Vector3.up * 0.001f;
 
             if (cameraTopY > _lastGeneratedLevelTopY)
             {
