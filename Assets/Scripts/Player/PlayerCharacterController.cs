@@ -9,6 +9,14 @@ public class PlayerCharacterController : RaycastMovementController
 
     public bool IsMovingOnGround = false;
 
+    private Animator _animator;
+
+     void Start() 
+    {
+        _animator = GetComponent<Animator>();
+        
+    }
+
 
     public void Move(Vector2 velocity, bool standingOnPlatform = false)
     {

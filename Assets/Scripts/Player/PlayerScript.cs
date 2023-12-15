@@ -35,12 +35,15 @@ public class PlayerScript : MonoBehaviour
     private PlayerCharacterController _characterController;
     #endregion
 
+    private Animator _animator;
+
     #region Unity Lifecycle
     private void Start()
     {
         _characterController = GetComponent<PlayerCharacterController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAbilities = GetComponent<PlayerAbilities>();
+        _animator = GetComponent<Animator>();
 
         _gravity = -(2 * JumpHeight) / Mathf.Pow(JumpTimeToApex, 2);
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
@@ -59,6 +62,8 @@ public class PlayerScript : MonoBehaviour
         HandleMovement(input);
         HandleSpriteFlip();
         HandleWallSlide();
+
+        
     }
     #endregion
 
@@ -72,6 +77,7 @@ public class PlayerScript : MonoBehaviour
             {
                 _jumpCount = 0;
                 _wallJumpCount = 0;
+                
             }
         }
     }
@@ -100,6 +106,9 @@ public class PlayerScript : MonoBehaviour
         {
             _velocity.y = _jumpVelocity;
             _jumpCount++;
+            
+            _animator.SetTrigger("Jump");
+
         }
     }
 
@@ -110,6 +119,10 @@ public class PlayerScript : MonoBehaviour
         _velocity.x = targetX == 0 ? 0 : Mathf.SmoothDamp(_velocity.x, targetX, ref _velocity_x_smoothing, accelerationTime);
         _velocity.y += _gravity * Time.deltaTime;
         _characterController.Move(_velocity * Time.deltaTime);
+
+        
+
+
     }
 
     private void HandleSpriteFlip()
