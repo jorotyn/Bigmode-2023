@@ -9,6 +9,10 @@ public class CameraFollow : MonoBehaviour
     public GameObject LeftSpawner;
     public GameObject RightSpawner;
 
+    public GameObject LevelPrefab;
+    public GameObject LastLevelChunk;
+    private Bounds _lastLevelBounds;
+
     public PlayerCharacterController Target;
     public Vector2 FocusAreaSize = new Vector2(3, 5);
     public float LookAheadX = 2;
@@ -22,15 +26,22 @@ public class CameraFollow : MonoBehaviour
     private float _targetLookAheadX;
     private float _lookAheadDirX;
     private float _smooth_look_velocity_x;// don't touch, this is for Mathf.SmoothDamp to keep track of
-    private float _smooth_velocity_y;// don't touch, this is for Mathf.SmoothDamp to keep track of
 
     private bool _lookAheadStopped;
 
     private bool _climbUp = false;
 
+    private Camera _camera;
+
+    private float cameraTopY => _camera.ScreenToWorldPoint(new Vector3(0, Screen.height)).y;
+
+    private float _lastGeneratedLevelTopY => _lastLevelBounds.max.y;
+
     private void Start()
     {
+        _camera = GetComponent<Camera>();
         _focusArea = new FocusArea(Target.Collider.bounds, FocusAreaSize);
+        _lastLevelBounds = LastLevelChunk.GetComponent<BoxCollider2D>().bounds;
         StartCoroutine(DelayAndClimb());
         StartCoroutine(SpawnEnemies());
     }
@@ -64,7 +75,6 @@ public class CameraFollow : MonoBehaviour
     {
         _focusArea.Update(Target.Collider.bounds);
 
-        var focusPos = _focusArea.Center + Vector2.up * VerticalOffset;
 
         if (_focusArea.Velocity.x != 0)
         {
@@ -88,19 +98,14 @@ public class CameraFollow : MonoBehaviour
 
         _currentLookAheadX = Mathf.SmoothDamp(_currentLookAheadX, _targetLookAheadX, ref _smooth_look_velocity_x, LookSmoothTimeX);
 
-        if (focusPos.y > transform.position.y)
-        {
-            focusPos.y = Mathf.SmoothDamp(transform.position.y, focusPos.y, ref _smooth_velocity_y, VerticalSmoothTime);
-        }
-        else
-        {
-            focusPos.y = transform.position.y;
-        }
-
-        focusPos += Vector2.right * _currentLookAheadX;
         if (_climbUp)
         {
             transform.position += Vector3.up * 0.0005f;
+
+            if (cameraTopY > _lastGeneratedLevelTopY)
+            {
+                Debug.Log("generate moreplatform");
+            }
         }
     }
 
