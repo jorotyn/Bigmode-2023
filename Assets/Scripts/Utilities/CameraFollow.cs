@@ -6,12 +6,11 @@ public class CameraFollow : MonoBehaviour
     public GameObject RedCandlePrefab;
     public GameObject YellowCandlePrefab;
     public GameObject BlueCandlePrefab;
-    public GameObject LeftSpawner;
-    public GameObject RightSpawner;
 
     public GameObject LevelPrefab;
     public GameObject LastLevelChunk;
     private Bounds _lastLevelBounds;
+    private const float chunkSize = 20.7f;
 
     public PlayerCharacterController Target;
     public Vector2 FocusAreaSize = new Vector2(3, 5);
@@ -43,32 +42,12 @@ public class CameraFollow : MonoBehaviour
         _focusArea = new FocusArea(Target.Collider.bounds, FocusAreaSize);
         _lastLevelBounds = LastLevelChunk.GetComponent<BoxCollider2D>().bounds;
         StartCoroutine(DelayAndClimb());
-        StartCoroutine(SpawnEnemies());
     }
 
     private IEnumerator DelayAndClimb()
     {
         yield return new WaitForSeconds(3);
         _climbUp = true;
-    }
-
-    private IEnumerator SpawnEnemies()
-    {
-        while (true)
-        {
-            var pos = Random.Range(0, 2) > 0 ? LeftSpawner.transform.position : RightSpawner.transform.position;
-            var tmpObj = Random.Range(0, 3) switch
-            {
-                0 => Instantiate(RedCandlePrefab, pos, Quaternion.identity),
-                1 => Instantiate(YellowCandlePrefab, pos, Quaternion.identity),
-                2 => Instantiate(BlueCandlePrefab, pos, Quaternion.identity),
-                _ => throw new System.NotImplementedException()
-            };
-            var p = tmpObj.transform.position;
-            p.z = 10;
-            tmpObj.transform.position = p;
-            yield return new WaitForSeconds(3);
-        }
     }
 
     private void LateUpdate()
@@ -102,9 +81,17 @@ public class CameraFollow : MonoBehaviour
         {
             transform.position += Vector3.up * 0.001f;
 
-            if (cameraTopY > _lastGeneratedLevelTopY)
+            if (cameraTopY > _lastGeneratedLevelTopY - 1)
             {
-                Debug.Log("generate moreplatform");
+                var levelchunk = Instantiate(LevelPrefab,
+                                         new Vector3(
+                                             LastLevelChunk.transform.position.x,
+                                             LastLevelChunk.transform.position.y + chunkSize,
+                                             LastLevelChunk.transform.position.z
+                                         ),
+                                         Quaternion.identity);
+                LastLevelChunk = levelchunk;
+                _lastLevelBounds = LastLevelChunk.GetComponent<BoxCollider2D>().bounds;
             }
         }
     }
