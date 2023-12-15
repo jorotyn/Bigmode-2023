@@ -34,7 +34,6 @@ public class PlayerScript : MonoBehaviour
     private PlayerAbilities _playerAbilities;
     private PlayerCharacterController _characterController;
     private Animator _animator;
-    private float counterjumpforce;
     public bool _canJump;
     #endregion
 
@@ -50,7 +49,6 @@ public class PlayerScript : MonoBehaviour
         _jumpVelocity = Mathf.Abs(_gravity) * JumpTimeToApex;
         _jumpCount = 0;
         _playerAbilities.CurrentAbility = InitialAbility;
-        counterjumpforce = -.00000000f;
     }
 
     private void Update()
