@@ -90,7 +90,7 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638382523045459678
+  lastModified: 638382560679084108
   FileSizes: []
   Exists: 1
 --- !u!114 &-6108350832353716556
@@ -228,6 +228,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2115683918917027258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ScoopThrow
+  m_EditorClassIdentifier: 
+  Path: event:/ScoopThrow
+  Guid:
+    Data1: 2136270248
+    Data2: 1143237613
+    Data3: 1387090366
+    Data4: -13084145
+  Banks:
+  - {fileID: -6251774163341615231}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 750
 --- !u!114 &-1255168882713783276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,12 +364,13 @@ MonoBehaviour:
   - {fileID: 7523986831998480594}
   - {fileID: 272177421359249296}
   - {fileID: 2265650962664485654}
+  - {fileID: -2115683918917027258}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6251774163341615231}
   StringsBanks:
   - {fileID: 4736580453891932376}
-  cacheTime: 638382523045585677
+  cacheTime: 638382560679168151
   cacheVersion: 131609
 --- !u!114 &272177421359249296
 MonoBehaviour:
@@ -464,10 +492,10 @@ MonoBehaviour:
   Path: Assets/AUDIO/FmodBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638382523045585677
+  lastModified: 638382560679168151
   FileSizes:
   - Name: 
-    Value: 1746
+    Value: 1794
   Exists: 1
 --- !u!114 &5241176872841498474
 MonoBehaviour:

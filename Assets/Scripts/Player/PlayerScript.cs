@@ -141,6 +141,7 @@ public class PlayerScript : MonoBehaviour
             if (_velocity.y < -WallSlideSpeedMax)
             {
                 _velocity.y = -WallSlideSpeedMax; // Apply wall slide speed
+               
             }
         }
     }

@@ -35,6 +35,8 @@ public class PieAudioManager : MonoBehaviour
     public float counter = 0f;
     private bool CanWallsoud = true;
 
+    public Animator _anim;
+
    
  
 
@@ -113,9 +115,10 @@ public class PieAudioManager : MonoBehaviour
               characterController.CurrentCollisions.WallLeft )
           {
 
-            if (CanWallsoud)
+            if (CanWallsoud && characterController.IsMovingOnGround == false)
             {
               walljumpinstance.start();
+             // _anim.SetBool("WallSlide", true);
               CanWallsoud = false;
               
             }
@@ -124,9 +127,11 @@ public class PieAudioManager : MonoBehaviour
           }
 
           if (characterController.CurrentCollisions.WallRight == false &&
-              characterController.CurrentCollisions.WallLeft == false )
+              characterController.CurrentCollisions.WallLeft == false 
+              || characterController.IsMovingOnGround)
           {
               walljumpinstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+             // _anim.SetBool("WallSlide", false);
               CanWallsoud = true;
               //Debug.Log("WallSlide");
              

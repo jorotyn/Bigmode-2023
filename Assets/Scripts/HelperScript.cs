@@ -6,6 +6,9 @@ public class HelperScript : MonoBehaviour
     public GameObject[] ScoopPrefabs;
     public float FireFrequency = 1f;
 
+    private FMOD.Studio.EventInstance ScoopThrowInstance;
+    public string ScoopThrowEvent = "event:/ScoopThrow";
+
     // cumulative amount of deltaTime it should take for
     // object to go from one side of the screen to the other
     private float time = 300f;
@@ -15,6 +18,12 @@ public class HelperScript : MonoBehaviour
                                                                 Camera.main.pixelHeight,
                                                                 0)).y;
     private bool _dead;
+
+    void Start()
+    {
+        ScoopThrowInstance = FMODUnity.RuntimeManager.CreateInstance(ScoopThrowEvent);
+
+    }
 
     public IEnumerator Enter()
     {
@@ -48,6 +57,7 @@ public class HelperScript : MonoBehaviour
             var prefab = ScoopPrefabs[Random.Range(0, ScoopPrefabs.Length)];
             var tmpObj = Instantiate(prefab, transform.position, Quaternion.identity);
             tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, Vector2.down.y);
+            ScoopThrowInstance.start();
             yield return new WaitForSeconds(FireFrequency);
         }
     }

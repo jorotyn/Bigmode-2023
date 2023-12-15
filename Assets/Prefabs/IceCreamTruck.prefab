@@ -105,6 +105,7 @@ MonoBehaviour:
   - {fileID: 2353308057854805289, guid: 26f81330b85f6e84eb707e33bc407445, type: 3}
   - {fileID: 4211583561191583009, guid: 5ed27a69a8f76df4a869e9bc5125f568, type: 3}
   FireFrequency: 2
+  ScoopThrowEvent: event:/ScoopThrow
 --- !u!70 &-8094854582964529986
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
