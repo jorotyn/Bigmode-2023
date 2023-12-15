@@ -29,6 +29,7 @@ public class CameraFollow : MonoBehaviour
     private bool _lookAheadStopped;
 
     private bool _climbUp = false;
+    private float _climbRate => Mathf.Max(.001f, _camera.transform.position.y * 0.0002f);
 
     private Camera _camera;
 
@@ -79,7 +80,7 @@ public class CameraFollow : MonoBehaviour
 
         if (_climbUp)
         {
-            transform.position += Vector3.up * 0.001f;
+            transform.position += Vector3.up * _climbRate;
 
             if (cameraTopY > _lastGeneratedLevelTopY - 1)
             {
