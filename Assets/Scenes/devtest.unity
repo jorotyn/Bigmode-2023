@@ -2266,6 +2266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433f0ae7a3c2a4525a642dff3e8e16d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RedCandlePrefab: {fileID: 0}
+  YellowCandlePrefab: {fileID: 0}
+  BlueCandlePrefab: {fileID: 0}
+  LeftSpawner: {fileID: 0}
+  RightSpawner: {fileID: 0}
   Target: {fileID: 1049500704}
   FocusAreaSize: {x: 3, y: 5}
   LookAheadX: 0
@@ -6110,6 +6115,7 @@ MonoBehaviour:
   playerAbilities: {fileID: 0}
   deathPanel: {fileID: 962523565}
   AbbilityPannel: {fileID: 1420594599}
+  _deathPannelUi: {fileID: 962523570}
   currentModeText: {fileID: 1243545121}
 --- !u!4 &1815451898
 Transform:

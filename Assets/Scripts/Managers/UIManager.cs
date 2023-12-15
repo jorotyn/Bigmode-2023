@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private GameObject AbbilityPannel;
 
+    [SerializeField] private DeathPannelUi _deathPannelUi;
+
+    private float Timer;
+    private float ClimCount;
+    private float AlamodeCount;
+
     [Header("Mode")]
     [SerializeField] private TextMeshProUGUI currentModeText;
     #endregion
@@ -19,6 +25,10 @@ public class UIManager : MonoBehaviour
     #region Unity Lifecycle
     private void Start()
     {
+        Timer = 0;
+        ClimCount = 0;
+        AlamodeCount = 0;
+
         if (playerHealth == null) playerHealth = FindObjectOfType<PlayerHealth>();
 
         playerHealth.onPlayerDeath.AddListener(OnPlayerDeath);
@@ -37,8 +47,14 @@ public class UIManager : MonoBehaviour
     #region Event Driven Methods
     private void OnPlayerDeath()
     {
-        if (deathPanel != null) deathPanel.gameObject.SetActive(true);
+        if (deathPanel != null) 
+        
+        {
+        _deathPannelUi.TimeAlive = Timer;
+        deathPanel.gameObject.SetActive(true);
         AbbilityPannel.gameObject.SetActive(false);
+
+        }
 
     }
 
@@ -54,4 +70,12 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
+
+    
+    void FixedUpdate()
+    {
+        Timer += Time.deltaTime;
+
+        
+    }
 }

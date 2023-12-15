@@ -49,9 +49,9 @@ public TextMeshProUGUI Val3;
          valueToLerp2 = TimeAlive;
          valueToLerp3 = TimeAlamode;
 
-         Val1.text = Layerclimb.ToString();
-         Val2.text = TimeAlive.ToString();
-         Val3.text = TimeAlamode.ToString();
+         Val1.text = ((int)Layerclimb).ToString();
+         Val2.text = ((int)TimeAlive).ToString();
+         Val3.text = ((int)TimeAlamode).ToString();
          
     }
 }
