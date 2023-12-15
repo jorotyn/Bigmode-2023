@@ -10,8 +10,8 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float MoveSpeed = 6f;
-    [SerializeField] private float JumpHeight = 3.5f;
-    [SerializeField] private float JumpTimeToApex = 2f;
+    [SerializeField] private float JumpHeight = 3f;
+    [SerializeField] private float JumpTimeToApex = .00002f;
     [SerializeField] private float AccelerationTimeAir = .2f;
     [SerializeField] private float AccelerationTimeGround = .1f;
 
@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
     private PlayerCharacterController _characterController;
     private Animator _animator;
     private float counterjumpforce;
+    public bool _canJump;
     #endregion
 
     #region Unity Lifecycle
@@ -80,7 +81,7 @@ public class PlayerScript : MonoBehaviour
             {
                 _jumpCount = 0;
                 _wallJumpCount = 0;
-                
+                _canJump = true; 
             }
         }
     }
@@ -93,6 +94,7 @@ public class PlayerScript : MonoBehaviour
             _playerAbilities.CurrentAbility == AbilityEnum.WallJump &&
             (!LimitWallJumps || _wallJumpCount < MaxWallJumpCount))
         {
+            Debug.Log("WALL JUMP");
             _velocity.y = _jumpVelocity;
             _velocity.x = _characterController.CurrentCollisions.WallLeft ? MoveSpeed : -MoveSpeed;
             if (LimitWallJumps)
@@ -104,16 +106,18 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleRegularJump()
     {
-        if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
+        if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount && _canJump &&
             (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || _characterController.CurrentCollisions.Below))
         {
+            Debug.Log("JUMP");
             _velocity.y = _jumpVelocity;
             _jumpCount++;
         }
-        else if(InputManager.JumpReleased() && !_characterController.CurrentCollisions.Below)
+        else if(_canJump && InputManager.JumpReleased() && !_characterController.CurrentCollisions.Below)
         {
-            _velocity.y = counterjumpforce;
-	    }    
+            _velocity.y = _jumpVelocity / 3;
+            _canJump = false;
+        } 
     }
 
     private void HandleMovement(Vector2 input)
