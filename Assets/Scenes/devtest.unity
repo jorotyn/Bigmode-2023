@@ -2945,7 +2945,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 961700441
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1454337367
@@ -3797,6 +3797,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 19.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6040307392848353134, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040307392848353134, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1603220759
+      objectReference: {fileID: 0}
     - target: {fileID: 6146462697500468185, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
       propertyPath: m_Offset.y
@@ -3806,6 +3816,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 19.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508420154046916472, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508420154046916472, guid: 8c6dc380f69e343a98a5d8ead451d822,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1603220759
       objectReference: {fileID: 0}
     - target: {fileID: 9102846256249457921, guid: 8c6dc380f69e343a98a5d8ead451d822,
         type: 3}
