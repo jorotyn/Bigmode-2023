@@ -103,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoopPrefabs:
   - {fileID: 596168466053252370, guid: 3a5224abd4282874a9a1675f2f6b4745, type: 3}
-  - {fileID: 2353308057854805289, guid: 26f81330b85f6e84eb707e33bc407445, type: 3}
   - {fileID: 4211583561191583009, guid: 5ed27a69a8f76df4a869e9bc5125f568, type: 3}
   FireFrequency: 2
   ScoopThrowEvent: event:/ScoopThrow
