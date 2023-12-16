@@ -11,7 +11,7 @@ public class HelperScript : MonoBehaviour
 
     // cumulative amount of deltaTime it should take for
     // object to go from one side of the screen to the other
-    private float time => Screen.width / 1.5f;
+    private float time => Screen.width / 4;
 
     private float _cameraTopWorldY => Camera.main.ScreenToWorldPoint(
                                                     new Vector3(0,
