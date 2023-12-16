@@ -30,7 +30,7 @@ public abstract class BaseCandleScript : MonoBehaviour
         while (true)
         {
             _animator.SetBool("WindingUp", true);
-            yield return new WaitForSeconds(Random.Range(3, 6));
+            yield return new WaitForSeconds(Random.Range(8, 16));
         }
     }
 

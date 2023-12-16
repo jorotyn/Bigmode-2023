@@ -69,7 +69,7 @@ public class CameraFollow : MonoBehaviour
 
             var helperScript = helper.GetComponent<HelperScript>();
             StartCoroutine(helperScript.Enter());
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(30);
         }
     }
 
