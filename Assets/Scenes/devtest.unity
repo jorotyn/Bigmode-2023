@@ -330,7 +330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66.3, y: -2.6}
+  m_AnchoredPosition: {x: 77, y: -1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205203456
@@ -712,7 +712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.9, y: -1.8}
+  m_AnchoredPosition: {x: 62, y: -4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487329803
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Layer climbed:'
+  m_text: 'Layers climbed:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d5ec3f4cfbac4a37b3e49430055ff6f, type: 2}
   m_sharedMaterial: {fileID: 6217634176697760325, guid: 4d5ec3f4cfbac4a37b3e49430055ff6f,
@@ -1892,7 +1892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &962523566
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2302,6 +2302,7 @@ MonoBehaviour:
       Data3: -2072555085
       Data4: -532190512
     Path: event:/ScoopGrab
+  scoopcount: 0
 --- !u!114 &1049500707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,7 +2437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time a la mode:'
+  m_text: 'Scoops Grabs:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d5ec3f4cfbac4a37b3e49430055ff6f, type: 2}
   m_sharedMaterial: {fileID: 6217634176697760325, guid: 4d5ec3f4cfbac4a37b3e49430055ff6f,
@@ -3113,8 +3114,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5258e1a0517a4e7a902e99285e75c77, type: 3}
   playerHealth: {fileID: 1049500708}
   playerAbilities: {fileID: 0}
+  _scoop: {fileID: 1049500706}
   deathPanel: {fileID: 962523565}
   AbbilityPannel: {fileID: 1420594599}
+  _player: {fileID: 1049500698}
   _deathPannelUi: {fileID: 962523570}
   currentModeText: {fileID: 1243545121}
 --- !u!4 &1815451898

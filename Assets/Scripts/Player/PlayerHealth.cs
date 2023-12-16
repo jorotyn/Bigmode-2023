@@ -26,6 +26,15 @@ public class PlayerHealth : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    void FixedUpdate()
+    {
+        if (currentLife <= 0)
+        {
+            Die();
+        }
+        
+    }
     #endregion
 
     #region Private Methods

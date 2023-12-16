@@ -16,15 +16,17 @@ public class UIManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAbilities playerAbilities;
+    [SerializeField] private ScoopStack _scoop;
 
     [Header("Death")]
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private GameObject AbbilityPannel;
+    [SerializeField] private GameObject _player;
 
     [SerializeField] private DeathPannelUi _deathPannelUi;
 
     private float Timer;
-    private float ClimCount;
+    private float division = 3.2f;
     private float AlamodeCount;
 
     [Header("Mode")]
@@ -35,7 +37,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Timer = 0;
-        ClimCount = 0;
+        
         AlamodeCount = 0;
 
         if (playerHealth == null) playerHealth = FindObjectOfType<PlayerHealth>();
@@ -60,6 +62,8 @@ public class UIManager : MonoBehaviour
 
         {
             _deathPannelUi.TimeAlive = Timer;
+            _deathPannelUi.Layerclimb = (_player.transform.position.y / division);
+            _deathPannelUi.TimeAlamode = _scoop.scoopcount;
             deathPanel.gameObject.SetActive(true);
             AbbilityPannel.gameObject.SetActive(false);
 

@@ -10,10 +10,12 @@ public class ScoopStack : MonoBehaviour
 
     [SerializeField]
     private EventReference ScoopSfx;
+    public float scoopcount;
 
     private void Start()
     {
         playerAbilities = GetComponent<PlayerAbilities>();
+        scoopcount = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +25,7 @@ public class ScoopStack : MonoBehaviour
             GetAbility(collision.gameObject.GetComponent<Ability>());
             AddScoop(collision.gameObject.GetComponent<Scoop>());
             PlayScoopSound(ScoopSfx);
+            scoopcount ++ ;
         }
     }
 
