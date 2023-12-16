@@ -11,7 +11,7 @@ public class CandleSpawner : MonoBehaviour
     void Start()
     {
         rand = Random.Range(0,3);
-        randomize = Random.Range(0,7);
+        randomize = Random.Range(0,6);
 
         if (randomize <= 1)
         {

@@ -56,6 +56,7 @@ public class CameraFollow : MonoBehaviour
 
     private IEnumerator SpawnTruck()
     {
+        yield return new WaitForSeconds(15);
         while (true)
         {
             var startPos = _camera.ScreenToWorldPoint(
