@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour
             (!LimitWallJumps || _wallJumpCount < MaxWallJumpCount))
         {
             Debug.Log("WALL JUMP");
-            _velocity.y = _jumpVelocity;
+            _velocity.y = _jumpVelocity/1.5f;
             _velocity.x = _characterController.CurrentCollisions.WallLeft ? MoveSpeed : -MoveSpeed;
             if (LimitWallJumps)
             {
@@ -104,10 +104,9 @@ public class PlayerScript : MonoBehaviour
 
     private void HandleRegularJump()
     {
-        if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount && _canJump &&
-            (_playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || _characterController.CurrentCollisions.Below))
+        if (InputManager.JumpPressed() && _jumpCount < MaxJumpCount &&
+            (_canJump || _playerAbilities.CurrentAbility == AbilityEnum.DoubleJump || _characterController.CurrentCollisions.Below))
         {
-            Debug.Log("JUMP");
             _velocity.y = _jumpVelocity;
             _jumpCount++;
         }
